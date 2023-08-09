@@ -10,6 +10,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@tamagui/config": "^1.52.0",
     "@tamagui/shorthands": "^1.50.2",
     "@tamagui/themes": "^1.50.2",
     "@types/react": "~18.2.14",
