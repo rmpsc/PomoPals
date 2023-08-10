@@ -1,17 +1,16 @@
-import { StyleSheet } from 'react-native';
-import { Stack, Text, Button, getTokens } from 'tamagui';
-/* https://tamagui.dev/docs/core/stack-and-text  */
+import { StyleSheet, Text, View, } from 'react-native';
+import { Button } from 'tamagui';
 
 export default function Homepage() {
   return (
-    <Stack style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>PomoPals</Text>
-      <Text style={styles.subtitle}>How would you like to study today?</Text>
-      <Stack style={styles.buttonContainer}>
+      <Text>How would you like to study today?</Text>
+      <View style={styles.buttonContainer}>
         <Button style={styles.button}>Solo</Button>
         <Button style={styles.button}>Group</Button>
-      </Stack>
-    </Stack>
+      </View>
+    </View>
   );
 }
 
@@ -22,11 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: getTokens().size.small,
-    color: '#000000'
-  },
-  subtitle: {
-    color: '#000000'
+    fontSize: 30,
   },
   buttonContainer: {
     flexDirection: 'row',
