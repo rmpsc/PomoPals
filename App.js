@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Suspense } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import Homepage from './pages/Homepage';
 import { TamaguiProvider } from 'tamagui'
 import config from './tamagui.config'
