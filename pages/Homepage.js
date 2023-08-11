@@ -1,16 +1,22 @@
 import { StyleSheet } from 'react-native';
-import { Stack, Text, Button } from 'tamagui';
+import { Stack, Text, Button, Theme } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 
 export default function Homepage() {
   return (
     <Stack ai='center'>
-      <Text color='$tomato' fontSize={'$1'}>PomoPals</Text>
-      <Text color='$darkPurple'>How would you like to study today?</Text>
-      <Stack style={styles.buttonContainer} fd='row' jc='space-between'>
-        <Button style={styles.button}>Solo</Button>
-        <Button style={styles.button}>Group</Button>
+      <Stack>
+        <Text color='$tomato' fontSize={'$1'}>PomoPals</Text>
       </Stack>
+      
+      <Text color='$darkPurple'>How would you like to study today?</Text>
+      <Theme name='light_red'>
+      <Stack style={styles.buttonContainer} fd='row' jc='space-between'>
+        <Button size={60}>Solo</Button>
+        <Button size={60}>Group</Button>
+      </Stack>
+      </Theme>
+
     </Stack>
   );
 }

@@ -5,7 +5,8 @@ const size = {
   0: 0,
   'true': 18,
   1: 4,
-  2: 8
+  2: 20,
+  6: 60,
 };
 
 const space = {
