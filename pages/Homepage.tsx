@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Stack, Text, Button, Theme } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import PomodoroSolo from './PomodoroSolo';
 
 interface HomepageProps {navigation}
 
@@ -25,7 +24,14 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
           >
             Solo
           </Button>
-          <Button size={60}>Group</Button>
+          <Button
+            size={60}
+            onPress={() =>
+              navigation.navigate('PomodoroGroup')
+            }
+          >
+            Group
+          </Button>
         </Stack>
       </Theme>
     </Stack>

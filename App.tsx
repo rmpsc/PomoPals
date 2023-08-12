@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Homepage from './pages/Homepage';
 import PomodoroSolo from './pages/PomodoroSolo';
+import PomodoroGroup from './pages/PomodoroGroup';
 
 const Stacks = createNativeStackNavigator();
 
@@ -15,14 +16,19 @@ export default function App() {
       <NavigationContainer>
         <Stacks.Navigator>
           <Stacks.Screen
-            name="Homepage"
+            name='Homepage'
             component={Homepage}
             options={{ title: 'PomoPals' }}
           />
           <Stacks.Screen
-            name="PomodoroSolo"
+            name='PomodoroSolo'
             component={PomodoroSolo}
             options={{ title: 'Solo Pomodoro' }}
+          />
+          <Stacks.Screen
+            name='PomodoroGroup'
+            component={PomodoroGroup}
+            options={{ title: 'Group Pomodoro' }}
           />
         </Stacks.Navigator>
       </NavigationContainer>
