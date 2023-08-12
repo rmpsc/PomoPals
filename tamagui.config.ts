@@ -6,7 +6,6 @@ const size = {
   'true': 18,
   1: 4,
   2: 20,
-  6: 60,
 };
 
 const space = {
@@ -21,6 +20,7 @@ const interFont = createFont({
     1: 20,
     2: 15,
     3: 10,
+    6: 60,
     // ...
   },
   lineHeight: {
