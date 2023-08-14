@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Stack, Text, Button } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
@@ -6,11 +6,27 @@ import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 interface PomodoroSoloProps {}
 
 const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [startButtonText, setStartButtonText] = useState('Start');
+
+    useEffect(() => {
+      if (isPlaying) {
+        setStartButtonText('Pause')
+      } else {
+        setStartButtonText('Start')
+      }
+    }, [isPlaying]);
+
+    const handleButtonPress = () => {
+      setIsPlaying(!isPlaying);
+    };
+
     return (
         <Stack ai={'center'}>
-            <Button>Start</Button>
+            <Button onPress={handleButtonPress}>{startButtonText}</Button>
             <CountdownCircleTimer
-                isPlaying={true}
+                isPlaying={isPlaying}
                 duration={7}
                 colors={['#004777', '#F7B801', '#A30000', '#A30000']}
                 colorsTime={[7, 5, 2, 0]}
