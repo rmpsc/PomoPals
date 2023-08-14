@@ -17,8 +17,8 @@ const space = {
 const interFont = createFont({
   family: 'Arial',
   size: {
-    1: 20,
-    2: 15,
+    1: 24,
+    2: 18,
     3: 10,
     6: 60,
     // ...
@@ -55,7 +55,9 @@ const tokens = createTokens({
   color: {
     tomato: '#FF6347',
     lightPurple: '#EDD2F3',
-    darkPurple: '#544179'
+    darkPurple: '#544179',
+    black: '#000000',
+    grey: '#808080'
   },
   radius: {
     0: 0,
@@ -87,7 +89,8 @@ const shorthands = {
   w: 'width',
   lh: 'lineHeight',
   ta: 'textAlign',
-  fd: 'flexDirection'
+  fd: 'flexDirection',
+  c: 'color',
 } as const;
 
 const config = createTamagui({
