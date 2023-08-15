@@ -57,7 +57,8 @@ const tokens = createTokens({
     lightPurple: '#EDD2F3',
     darkPurple: '#544179',
     black: '#000000',
-    grey: '#808080'
+    grey: '#808080',
+    white: '#FFFFFF'
   },
   radius: {
     0: 0,

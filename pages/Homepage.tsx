@@ -21,7 +21,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
         </Text>
       </Stack>
 
-      <Stack theme="light_red">
+      <Stack theme="light">
         <Button
           size={90}
           marginBottom={10}

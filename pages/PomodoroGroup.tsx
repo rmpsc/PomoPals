@@ -9,7 +9,7 @@ const PomodoroGroup: React.FC<PomodoroGroupProps> = () => {
         <Stack paddingHorizontal={25}>
             <Text c='$black' fontSize={'$1'} fontWeight={'$6'}>Room ID: 123</Text>
             <Text c='$grey' fontSize={'$2'}>Invite your friends or join them!</Text>
-            <Stack theme='light_red'>
+            <Stack theme='light'>
                 <Button
                 size={90}
                 marginVertical={10}
