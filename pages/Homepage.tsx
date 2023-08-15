@@ -10,7 +10,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
   
   return (
     <Stack paddingHorizontal={25}>
-      <Stack paddingVertical={50}>
+      <Stack paddingVertical={30}>
         <Text c='$black' fontSize={'$1'} fontWeight={'$6'}>
           Welcome back, Romel
         </Text>
@@ -27,24 +27,26 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
           marginBottom={10}
           backgroundColor={buttonColor}
           shadowColor={'$black'}
-          shadowRadius={1}
+          shadowRadius={2}
+          shadowOpacity={.1}
           onPress={() =>
             navigation.navigate('PomodoroSolo')
           }
         >
-          <Text c='$black' fontSize={'$2'}>Solo</Text>
+          <Text c='$black' fontSize={'$2'}>Study solo</Text>
         </Button>
         <Button
           size={90}
           marginBottom={10}
           backgroundColor={buttonColor}
           shadowColor={'$black'}
-          shadowRadius={1}
+          shadowRadius={2}
+          shadowOpacity={.1}
           onPress={() =>
             navigation.navigate('PomodoroGroup')
           }
         >
-          <Text c='$black' fontSize={'$2'}>Group</Text>
+          <Text c='$black' fontSize={'$2'}>Study in a group</Text>
         </Button>
       </Stack>
     </Stack>

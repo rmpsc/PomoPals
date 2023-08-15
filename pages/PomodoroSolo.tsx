@@ -30,7 +30,8 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               marginVertical={10}
               backgroundColor={'white'}
               shadowColor={'$black'}
-              shadowRadius={1}
+              shadowRadius={2}
+              shadowOpacity={.1}
               onPress={handleButtonPress}>
               <Text c='$black' fontSize={'$2'}>{startButtonText}</Text>
             </Button>

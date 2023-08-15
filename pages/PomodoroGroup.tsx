@@ -15,7 +15,8 @@ const PomodoroGroup: React.FC<PomodoroGroupProps> = () => {
                 marginVertical={10}
                 backgroundColor={'white'}
                 shadowColor={'$black'}
-                shadowRadius={1}>
+                shadowRadius={2}
+                shadowOpacity={.1}>
                 <Text c='$black' fontSize={'$2'}>Invite</Text>
                 </Button>
                 <Button
@@ -23,7 +24,8 @@ const PomodoroGroup: React.FC<PomodoroGroupProps> = () => {
                 marginVertical={10}
                 backgroundColor={'white'}
                 shadowColor={'$black'}
-                shadowRadius={1}>
+                shadowRadius={2}
+                shadowOpacity={.1}>
                 <Text c='$black' fontSize={'$2'}>Join</Text>
                 </Button>
             </Stack>
