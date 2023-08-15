@@ -6,7 +6,7 @@ import { Stack, Text, Button, Theme } from 'tamagui';
 interface HomepageProps {navigation}
 
 const Homepage: React.FC<HomepageProps> = ({navigation}) => {
-  const [buttonColor, setButtonColor] = useState('$tomato');
+  const [buttonColor, setButtonColor] = useState('white');
   
   return (
     <Stack paddingHorizontal={25}>
@@ -21,12 +21,13 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
         </Text>
       </Stack>
 
-      <Stack>
+      <Stack theme="light_red">
         <Button
           size={90}
           marginBottom={10}
           backgroundColor={buttonColor}
-          onPressIn={() => setButtonColor('$tomato')}
+          shadowColor={'$black'}
+          shadowRadius={1}
           onPress={() =>
             navigation.navigate('PomodoroSolo')
           }
@@ -37,6 +38,8 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
           size={90}
           marginBottom={10}
           backgroundColor={buttonColor}
+          shadowColor={'$black'}
+          shadowRadius={1}
           onPress={() =>
             navigation.navigate('PomodoroGroup')
           }

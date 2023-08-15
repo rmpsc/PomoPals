@@ -23,16 +23,28 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
     };
 
     return (
-        <Stack ai={'center'}>
-            <Button onPress={handleButtonPress}>{startButtonText}</Button>
-            <CountdownCircleTimer
-                isPlaying={isPlaying}
-                duration={7}
-                colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-                colorsTime={[7, 5, 2, 0]}
+        <Stack paddingHorizontal={25}>
+          <Stack theme="light_red">
+            <Button
+              size={90}
+              marginVertical={10}
+              backgroundColor={'white'}
+              shadowColor={'$black'}
+              shadowRadius={1}
+              onPress={handleButtonPress}>
+              <Text c='$black' fontSize={'$2'}>{startButtonText}</Text>
+            </Button>
+          </Stack>
+          <Stack ai='center'>
+            <CountdownCircleTimer 
+              isPlaying={isPlaying}
+              duration={7}
+              colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+              colorsTime={[7, 5, 2, 0]}
             >
-                {({ remainingTime }) => <Text color={'$tomato'} fontSize={'$6'}>{remainingTime}</Text>}
-            </CountdownCircleTimer>
+              {({ remainingTime }) => <Text color={'$tomato'} fontSize={'$6'}>{remainingTime}</Text>}
+              </CountdownCircleTimer>
+          </Stack>
         </Stack>
     )
 }
