@@ -7,50 +7,53 @@ interface PomodoroSoloProps {}
 
 const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
 
+    const [startButtonText, setStartButtonText] = useState('Start');
     const [topText, setTopText] = useState('You got this!');
+
     const [isPlaying, setIsPlaying] = useState(false);
     const [isOnBreak, setIsOnBreak] = useState(false);
-    const [startButtonText, setStartButtonText] = useState('Start');
-    const [pomodoroTimerMin, setPomodoroTimerMin] = useState(5);
-    const [breakTimerMin, setBreakTimerMin] = useState(5);
-    const [globalTimerMin, setGlobalTimerMin] = useState(pomodoroTimerMin);
+
+    const [pomodoroTimerMin, setPomodoroTimerMin] = useState(2);
+    const [breakTimerMin, setBreakTimerMin] = useState(1);
+    const [displayedTimeMin, setDisplayedTimeMin] = useState(pomodoroTimerMin);
     const [resetKey, setResetKey] = useState(0);
 
     useEffect(() => {
       if (isPlaying) {
         setStartButtonText('Pause');
-        setIsOnBreak(false);
       } else {
         setStartButtonText('Start')
       }
     }, [isPlaying]);
-
-    useEffect(() => {
-      if (isOnBreak) {
-        setResetKey(resetKey + 1);
-      }
-    }, [isOnBreak]);
 
     const handleButtonPress = () => {
       setIsPlaying(!isPlaying);
     };
 
     const handleTimerIncrease = () => {
-      setGlobalTimerMin(globalTimerMin + 5)
+      setDisplayedTimeMin(displayedTimeMin + 5)
     };
 
     const handleTimerDecrease = () => {
       if (pomodoroTimerMin > 5) {
-        setGlobalTimerMin(globalTimerMin - 5)
+        setDisplayedTimeMin(displayedTimeMin - 5)
       };
     };
 
-    const handleCurrentAcivity = () => {
+    const handleTimerComplete = () => {
+      setIsPlaying(false);
       if (isOnBreak) {
-        return breakTimerMin;
+        console.log('finished break!')
+        setIsOnBreak(false)
+        setTopText('Keep going, you got this!')
+        setDisplayedTimeMin(pomodoroTimerMin)
       } else {
-        return pomodoroTimerMin;
+        console.log('about to start a break!')
+        setIsOnBreak(true);
+        setTopText('You deserve a break!')
+        setDisplayedTimeMin(breakTimerMin)
       }
+      setResetKey(resetKey + 1);
     };
 
     return (
@@ -87,15 +90,10 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
             <CountdownCircleTimer
               key={resetKey}
               isPlaying={isPlaying}
-              duration={globalTimerMin}
+              duration={displayedTimeMin}
               colors={['#004777', '#F7B801', '#A30000', '#A30000']}
-              colorsTime={[globalTimerMin, globalTimerMin * .50, globalTimerMin * .25, 0]}
-              onComplete={() => {
-                setIsPlaying(false);
-                setIsOnBreak(true);
-                setTopText('You deserve a break!')
-                setGlobalTimerMin(breakTimerMin)
-              }}
+              colorsTime={[displayedTimeMin, displayedTimeMin * .50, displayedTimeMin * .25, 0]}
+              onComplete={handleTimerComplete}
             >
               {({ remainingTime }) =>
                 <Text color={'$tomato'} fontSize={'$6'}>
