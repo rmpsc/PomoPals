@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Stack, Text, Button, Theme } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
+import { Stack, XStack, YStack, Text, Button, Theme, ListItem } from 'tamagui';
+/* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
+import 'react-native-url-polyfill/auto';
+import { createClient } from '@supabase/supabase-js';
 
 interface HomepageProps {navigation}
 
 const Homepage: React.FC<HomepageProps> = ({navigation}) => {
+  /* takes in project url and anon key */
+  const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk');
+  
+  const [countries, setCountries] = useState([]);
   const [buttonColor, setButtonColor] = useState('white');
   
+  useEffect(() => {
+    getCountries();
+  }, [])
+
+  async function getCountries() {
+    const { data } = await supabase.from("countries").select();
+    setCountries(data);
+  }
+
   return (
     <Stack paddingHorizontal={25}>
       <Stack paddingVertical={30}>
@@ -49,6 +65,13 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
           <Text c='$black' fontSize={'$2'}>Study in a group</Text>
         </Button>
       </Stack>
+      <YStack>
+        <ListItem>
+          {countries.map((country) => (
+            <Text key={country.name}>{country.name}</Text>
+          ))}
+        </ListItem>
+      </YStack>
     </Stack>
   );
 };
