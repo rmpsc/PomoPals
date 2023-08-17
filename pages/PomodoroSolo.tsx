@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Stack, Text, Button } from 'tamagui';
+import { Stack, Text, Button, Input, XStack, YStack } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
 
@@ -14,7 +14,7 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
     const [isOnBreak, setIsOnBreak] = useState(false);
 
     const [pomodoroTimerMin, setPomodoroTimerMin] = useState(2);
-    const [breakTimerMin, setBreakTimerMin] = useState(1);
+    const [breakTimerMin, setBreakTimerMin] = useState(5);
     const [displayedTimeMin, setDisplayedTimeMin] = useState(pomodoroTimerMin);
     const [resetKey, setResetKey] = useState(0);
 
@@ -25,19 +25,37 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
         setStartButtonText('Start')
       }
     }, [isPlaying]);
+    
+    useEffect(() => {
+      if (isOnBreak) {
+        setDisplayedTimeMin(breakTimerMin);
+      } else {
+        setDisplayedTimeMin(pomodoroTimerMin);
+      }
+    }, [pomodoroTimerMin, breakTimerMin]);
 
     const handleButtonPress = () => {
       setIsPlaying(!isPlaying);
     };
 
-    const handleTimerIncrease = () => {
-      setDisplayedTimeMin(displayedTimeMin + 5)
+    const handlePomoTimeIncrease = () => {
+      setPomodoroTimerMin(pomodoroTimerMin + 1)
     };
 
-    const handleTimerDecrease = () => {
-      if (pomodoroTimerMin > 5) {
-        setDisplayedTimeMin(displayedTimeMin - 5)
-      };
+    const handlePomoTimeDecrease = () => {
+      if (pomodoroTimerMin > 1) {
+        setPomodoroTimerMin(pomodoroTimerMin - 1)
+      }
+    };
+
+    const handleBreakTimeIncrease = () => {
+      setBreakTimerMin(breakTimerMin + 1)
+    };
+
+    const handleBreakTimeDecrease = () => {
+      if (breakTimerMin > 1) {
+        setBreakTimerMin(breakTimerMin - 1)
+      }
     };
 
     const handleTimerComplete = () => {
@@ -63,29 +81,72 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               {topText}
             </Text>
           </Stack>
-          <Stack fd='row' ai='center' jc='center'>
-            <Button
-              size={40}
-              margin={10}
-              backgroundColor={'white'}
-              shadowColor={'$black'}
-              shadowRadius={2}
-              shadowOpacity={.1}
-              onPress={handleTimerDecrease}>
-              <Text c='$black' fontSize={'$2'}>-</Text>
-            </Button>
-            <Text c='$black' fontSize={'$2'}>Length</Text>
-            <Button
-              size={40}
-              margin={10}
-              backgroundColor={'white'}
-              shadowColor={'$black'}
-              shadowRadius={2}
-              shadowOpacity={.1}
-              onPress={handleTimerIncrease}>
-              <Text c='$black' fontSize={'$2'}>+</Text>
-            </Button>
-          </Stack>
+          <YStack>
+            <XStack p={10} ai='center' jc='center'>
+              <Text paddingHorizontal={5} c='$black' fontSize={'$2'}>Pomo</Text>
+              <Input
+                size='$2'
+                value={pomodoroTimerMin.toString()}
+                onChangeText={(e) => {
+                  setPomodoroTimerMin(Number(e))
+                  setResetKey(resetKey + 1);
+                }}
+              />
+              <Button
+                size='$2'
+                margin={5}
+                backgroundColor={'white'}
+                shadowColor={'$black'}
+                shadowRadius={2}
+                shadowOpacity={.1}
+                onPress={handlePomoTimeDecrease}>
+                <Text c='$black' fontSize={'$2'}>-</Text>
+              </Button>
+              <Button
+                size='$2'
+                margin={5}
+                backgroundColor={'white'}
+                shadowColor={'$black'}
+                shadowRadius={2}
+                shadowOpacity={.1}
+                onPress={handlePomoTimeIncrease}>
+                <Text c='$black' fontSize={'$2'}>+</Text>
+              </Button>
+            </XStack>
+            <XStack p={10} ai='center' jc='center'>
+              <Text paddingHorizontal={5} c='$black' fontSize={'$2'}>
+                Break
+              </Text>
+              <Input
+                size='$2'
+                value={breakTimerMin.toString()}
+                onChangeText={(e) => {
+                  setBreakTimerMin(Number(e))
+                  setResetKey(resetKey + 1);
+                }}
+              />
+              <Button
+                size='$2'
+                margin={5}
+                backgroundColor={'white'}
+                shadowColor={'$black'}
+                shadowRadius={2}
+                shadowOpacity={.1}
+                onPress={handleBreakTimeDecrease}>
+                <Text c='$black' fontSize={'$2'}>-</Text>
+              </Button>
+              <Button
+                size='$2'
+                margin={5}
+                backgroundColor={'white'}
+                shadowColor={'$black'}
+                shadowRadius={2}
+                shadowOpacity={.1}
+                onPress={handleBreakTimeIncrease}>
+                <Text c='$black' fontSize={'$2'}>+</Text>
+              </Button>
+            </XStack>
+          </YStack>
           <Stack ai='center'>
             <CountdownCircleTimer
               key={resetKey}
@@ -96,7 +157,7 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               onComplete={handleTimerComplete}
             >
               {({ remainingTime }) =>
-                <Text color={'$tomato'} fontSize={'$6'}>
+                <Text color={'$black'} fontSize={'$6'}>
                   {remainingTime}
                 </Text>
               }
