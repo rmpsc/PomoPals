@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Homepage from './pages/Homepage';
 import PomodoroSolo from './pages/PomodoroSolo';
 import PomodoroGroup from './pages/PomodoroGroup';
+import LoginPage from './pages/LoginPage';
 
 const Stacks = createNativeStackNavigator();
 
@@ -15,6 +16,11 @@ export default function App() {
     <TamaguiProvider config={config}>
       <NavigationContainer>
         <Stacks.Navigator>
+          <Stacks.Screen
+            name='LoginPage'
+            component={LoginPage}
+            options={{ title: 'Login' }}
+          />
           <Stacks.Screen
             name='Homepage'
             component={Homepage}
