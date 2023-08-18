@@ -14,10 +14,12 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
-  async function signInWithEmail() {
-    if (!username || !password) {
-      console.log('missing username or password');
+  async function signUpHandler() {
+    if (!username || !password || !firstName || !lastName) {
+      console.log("Make sure to fill in all fields");
       return;
     }
     const { data, error } = await supabase.auth.signUp({
@@ -47,7 +49,17 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
         placeholder={'Password'}
         onChangeText={(e) => setPassword(e)}
       />
-      <Button size='$2' onPress={signInWithEmail}>Go</Button>
+      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>First name</Text>
+      <Input
+        size='$2'
+        onChangeText={(e) => setFirstName(e)}
+      />
+      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>Last name</Text>
+      <Input
+        size='$2'
+        onChangeText={(e) => setLastName(e)}
+      />
+      <Button size='$2' onPress={signUpHandler}>Go</Button>
     </Stack>
   );
 };
