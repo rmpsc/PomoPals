@@ -8,6 +8,7 @@ import Homepage from './pages/Homepage';
 import PomodoroSolo from './pages/PomodoroSolo';
 import PomodoroGroup from './pages/PomodoroGroup';
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 const Stacks = createNativeStackNavigator();
 
@@ -20,6 +21,11 @@ export default function App() {
             name='LoginPage'
             component={LoginPage}
             options={{ title: 'Login' }}
+          />
+          <Stacks.Screen
+            name='SignupPage'
+            component={SignupPage}
+            options={{ title: 'Sign Up' }}
           />
           <Stacks.Screen
             name='Homepage'

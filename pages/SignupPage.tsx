@@ -6,9 +6,9 @@ import { Stack, XStack, YStack, Text, Button, Theme, ListItem, SizeTokens, Input
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
 
-interface LoginPageProps {navigation}
+interface SignupPageProps {navigation}
 
-const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
+const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
   /* takes in project url and anon key */
   const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk');
 
@@ -20,14 +20,14 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
       console.log('missing username or password');
       return;
     }
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signUp({
       email: username,
       password: password,
     })
     if (error) {
-        console.log('Invalid Credentials')
+        console.log('Email is already associated with an account')
     } else {
-      console.log('Login successful!')
+      console.log('Sign up successful!')
       console.log(data.user.email)
       navigation.navigate('Homepage')
     }
@@ -35,8 +35,8 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
   return (
     <Stack theme="light" paddingHorizontal={25}>
-      <Text paddingVertical={30} c='$black' fontSize={'$1'} fontWeight={'$6'}>Welcome!</Text>
-      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>Login</Text>
+      <Text paddingVertical={30} c='$black' fontSize={'$1'} fontWeight={'$6'}>Your journey starts soon!</Text>
+      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>Sign Up</Text>
       <Input
         size='$2'
         placeholder={'Username'}
@@ -48,12 +48,8 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
         onChangeText={(e) => setPassword(e)}
       />
       <Button size='$2' onPress={signInWithEmail}>Go</Button>
-      <XStack padding={10}>
-        <Text c='$grey' fontSize={'$2'}>Don't have an account?</Text>
-        <Button onPress={() => navigation.navigate('SignupPage')}>Sign Up</Button>
-      </XStack>
     </Stack>
   );
 };
 
-export default LoginPage;
+export default SignupPage;
