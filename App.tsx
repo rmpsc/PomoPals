@@ -18,14 +18,14 @@ export default function App() {
       <NavigationContainer>
         <Stacks.Navigator>
           <Stacks.Screen
-            name='LoginPage'
-            component={LoginPage}
-            options={{ title: 'Login' }}
-          />
-          <Stacks.Screen
             name='SignupPage'
             component={SignupPage}
             options={{ title: 'Sign Up' }}
+          />
+          <Stacks.Screen
+            name='LoginPage'
+            component={LoginPage}
+            options={{ title: 'Login' }}
           />
           <Stacks.Screen
             name='Homepage'

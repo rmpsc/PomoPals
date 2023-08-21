@@ -60,6 +60,10 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
         onChangeText={(e) => setLastName(e)}
       />
       <Button size='$2' onPress={signUpHandler}>Go</Button>
+      <XStack padding={10}>
+        <Text c='$grey' fontSize={'$2'}>Already have an account?</Text>
+        <Button onPress={() => navigation.navigate('LoginPage')}>Sign In</Button>
+      </XStack>
     </Stack>
   );
 };
