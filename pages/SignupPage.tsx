@@ -12,18 +12,18 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
   /* takes in project url and anon key */
   const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk');
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
   async function signUpHandler() {
-    if (!username || !password || !firstName || !lastName) {
+    if (!email || !password || !firstName || !lastName) {
       console.log("Make sure to fill in all fields");
       return;
     }
     const { data, error } = await supabase.auth.signUp({
-      email: username,
+      email: email,
       password: password,
     })
     if (error) {
@@ -41,8 +41,8 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
       <Text paddingBottom={10} c='$grey' fontSize={'$2'}>Sign Up</Text>
       <Input
         size='$2'
-        placeholder={'Username'}
-        onChangeText={(e) => setUsername(e)}
+        placeholder={'Email'}
+        onChangeText={(e) => setEmail(e)}
       />
       <Input
         size='$2'
