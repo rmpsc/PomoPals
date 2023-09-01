@@ -25,9 +25,20 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
+      options: {
+        data: {
+          // snake case is a common convention for sql
+          first_name: firstName,
+          last_name: lastName
+        },
+      },
     })
     if (error) {
-        console.log('Email is already associated with an account')
+        console.log('Error signing up')
+        console.log('email: ' + email)
+        console.log('password: ' + password)
+        console.log('firstName: ' + firstName)
+        console.log('lastName: ' + lastName)
     } else {
       console.log('Sign up successful!')
       console.log(data.user.email)
