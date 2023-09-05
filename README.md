@@ -2,6 +2,6 @@
 ## Features and future plans
 - study solo
 - group studying
-- avatar creation
+- profiles
 
 `npm start` to run locally
