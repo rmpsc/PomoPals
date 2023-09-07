@@ -34,7 +34,7 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
       },
     })
     if (error) {
-        console.log('Error signing up')
+        console.log('Error signing up:', error.message)
         console.log('email: ' + email)
         console.log('password: ' + password)
         console.log('firstName: ' + firstName)
