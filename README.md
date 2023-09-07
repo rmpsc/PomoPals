@@ -1,4 +1,7 @@
-# PomoPals
-A study app that makes use of the pomodoro technique. Future plans to support group studying
+**A study app that utilizes the pomodoro technique**
+## Features and future plans
+- study solo
+- group studying
+- profiles
 
 `npm start` to run locally
