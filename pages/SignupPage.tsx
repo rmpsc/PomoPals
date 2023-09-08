@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { Stack, XStack, YStack, Text, Button, Theme, ListItem, SizeTokens, Input } from 'tamagui';
+import { Stack, XStack, YStack, Text, Button, Input } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
