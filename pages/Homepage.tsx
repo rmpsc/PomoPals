@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { StyleSheet } from 'react-native';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { Stack, XStack, YStack, Text, Button, Theme, ListItem } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
+import { UserContext } from './UserContext';
 
 interface HomepageProps {navigation}
 
@@ -14,6 +15,8 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
   
   const [countries, setCountries] = useState([]);
   const [buttonColor, setButtonColor] = useState('white');
+
+  const user = useContext(UserContext)
   
   useEffect(() => {
     getCountries();
@@ -28,7 +31,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
     <Stack paddingHorizontal={25}>
       <Stack paddingVertical={30}>
         <Text c='$black' fontSize={'$1'} fontWeight={'$6'}>
-          Welcome back, Romel
+          Welcome back, {user?.user.first_name}
         </Text>
       </Stack>
       <Stack paddingBottom={10}>

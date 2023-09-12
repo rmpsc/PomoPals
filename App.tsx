@@ -9,11 +9,13 @@ import PomodoroSolo from './pages/PomodoroSolo';
 import PomodoroGroup from './pages/PomodoroGroup';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import { UserContextProvider } from './pages/UserContext';
 
 const Stacks = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <UserContextProvider>
     <TamaguiProvider config={config}>
       <NavigationContainer>
         <Stacks.Navigator>
@@ -45,6 +47,7 @@ export default function App() {
         </Stacks.Navigator>
       </NavigationContainer>
     </TamaguiProvider>
+    </UserContextProvider>
   );
 }
 

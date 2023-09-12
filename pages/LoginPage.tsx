@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { Stack, XStack, YStack, Text, Button, Input } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
+import { UserContext } from './UserContext';
 
 interface LoginPageProps {navigation}
 
@@ -13,6 +14,9 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  // access the user context
+  const { setUser } = useContext(UserContext)
 
   async function signInWithEmail() {
     if (!username || !password) {
@@ -24,10 +28,16 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
       password: password,
     })
     if (error) {
-        console.log('Invalid Credentials')
+      console.log('Invalid Credentials')
     } else {
-      console.log('Login successful!')
-      console.log(data.user.email)
+      console.log('Login successful!', data.user.user_metadata)
+      // save current user into userContext
+      const currentUser = {
+        first_name: data.user.user_metadata.first_name,
+        last_name: data.user.user_metadata.last_name,
+      };
+
+      setUser(currentUser)
       navigation.navigate('Homepage')
     }
   }

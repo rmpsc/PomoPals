@@ -2,7 +2,6 @@ import React, { createContext, useContext, ReactNode } from 'react';
 
 // Define the shape of your user data
 interface User {
-  id: number;
   first_name: string;
   last_name: string;
 }
@@ -10,18 +9,19 @@ interface User {
 // Create the context
 interface UserContextProps {
   user: User | null;
-  setUser: (user: User | null) => void;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
-const UserContext = createContext<UserContextProps | undefined>(undefined);
+export const UserContext = createContext<UserContextProps | undefined>(undefined);
 
 // Custom hook for consuming the context
 export function useUser() {
-  const context = useContext(UserContext);
-  if (context === undefined) {
+  // useContext returns current context value
+  const contextValue = useContext(UserContext);
+  if (contextValue === undefined) {
     throw new Error('useUser must be used within a UserContextProvider');
   }
-  return context;
+  return contextValue;
 }
 
 // Context provider component
