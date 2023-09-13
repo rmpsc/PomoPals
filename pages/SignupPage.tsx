@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { Stack, XStack, YStack, Text, Button, Input } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
+import { UserContext } from './UserContext';
 
 interface SignupPageProps {navigation}
 
@@ -15,6 +16,9 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+
+  // access the user context
+  const { setUser } = useContext(UserContext)
 
   async function signUpHandler() {
     if (!email || !password || !firstName || !lastName) {
@@ -39,8 +43,14 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
         console.log('firstName: ' + firstName)
         console.log('lastName: ' + lastName)
     } else {
-      console.log('Sign up successful!')
-      console.log(data.user.email)
+      console.log('Sign up successful!', data.user.user_metadata)
+      // save current user into userContext
+      const currentUser = {
+        first_name: data.user.user_metadata.first_name,
+        last_name: data.user.user_metadata.last_name,
+      };
+
+      setUser(currentUser)
       navigation.navigate('Homepage')
     }
   }
