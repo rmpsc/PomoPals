@@ -79,18 +79,4 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  button: {
-    backgroundColor: '#1AB787',
-  },
-  buttonContainer: {
-    // Define your styles here
-  },
-});
-
 export default Homepage;
