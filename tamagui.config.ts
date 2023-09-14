@@ -4,7 +4,7 @@ import { createFont, createTamagui, createTokens } from 'tamagui'
 const size = {
   0: 0,
   'true': 18,
-  1: 4,
+  1: 30,
   2: 20,
 };
 
@@ -17,7 +17,7 @@ const space = {
 const interFont = createFont({
   family: 'Arial',
   size: {
-    1: 24,
+    1: 35,
     2: 18,
     3: 10,
     6: 60,
@@ -32,6 +32,8 @@ const interFont = createFont({
   weight: {
     // Missing keys from partially defined objects will be filled in
     // 1 == 300, 5 == 300, 7 == 600
+    1: '700',
+    2: '400',
     4: '300',
     6: '600',
   },
