@@ -77,8 +77,8 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
         />
       </YStack>
 
-      <YStack paddingBottom={25} flex={1} justifyContent={'flex-end'} alignItems={'center'}>
-        <XStack padding={10}>
+      <YStack paddingBottom={25} flex={1} justifyContent={'flex-end'}>
+        <XStack padding={10} justifyContent={'center'}>
           <Text c='$grey' fontSize={'$2'}>Don't have an account?</Text>
           <Button onPress={() => navigation.navigate('SignupPage')}>
             <Text c='$blue10' fontSize={'$2'}>Sign Up</Text>
@@ -86,12 +86,13 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
         </XStack>
 
         <Button
-          size={50}
+          size={60}
           marginBottom={10}
           backgroundColor={'$gray9'}
           shadowColor={'$black'}
           shadowRadius={2}
           shadowOpacity={.1}
+          borderRadius={20}
           onPress={signInWithEmail}>
             <Text c='$white' fontSize={'$2'} fontWeight={'$1'}>Sign In</Text>
         </Button>

@@ -56,34 +56,70 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
   }
 
   return (
-    <Stack theme="light" paddingHorizontal={25}>
-      <Text paddingVertical={30} c='$black' fontSize={'$1'} fontWeight={'$6'}>Your journey starts soon!</Text>
-      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>Sign Up</Text>
-      <Input
-        size='$2'
-        placeholder={'Email'}
-        onChangeText={(e) => setEmail(e)}
-      />
-      <Input
-        size='$2'
-        placeholder={'Password'}
-        onChangeText={(e) => setPassword(e)}
-      />
-      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>First name</Text>
-      <Input
-        size='$2'
-        onChangeText={(e) => setFirstName(e)}
-      />
-      <Text paddingBottom={10} c='$grey' fontSize={'$2'}>Last name</Text>
-      <Input
-        size='$2'
-        onChangeText={(e) => setLastName(e)}
-      />
-      <Button size='$2' onPress={signUpHandler}>Go</Button>
-      <XStack padding={10}>
-        <Text c='$grey' fontSize={'$2'}>Already have an account?</Text>
-        <Button onPress={() => navigation.navigate('LoginPage')}>Sign In</Button>
-      </XStack>
+    <Stack theme="light" paddingHorizontal={25} paddingVertical={20} flex={1} flexDirection={'column'}>
+      <YStack paddingBottom={50}>
+        <Text paddingVertical={5} c='$black' fontSize={'$1'} fontWeight={'$1'}>
+          Let's get you started.
+        </Text>
+      </YStack>
+
+      <YStack>
+        <Input
+          padding={30}
+          marginVertical={10}
+          size='$2'
+          borderWidth={2}
+          borderRadius={20}
+          placeholder={'First name'}
+          onChangeText={(e) => setFirstName(e)}
+        />
+        <Input
+          padding={30}
+          marginVertical={10}
+          size='$2'
+          borderWidth={2}
+          borderRadius={20}
+          placeholder={'Last name'}
+          onChangeText={(e) => setLastName(e)}
+        />
+        <Input
+          padding={30}
+          marginVertical={10}
+          size='$2'
+          borderWidth={2}
+          borderRadius={20}
+          placeholder={'Email'}
+          onChangeText={(e) => setEmail(e)}
+        />
+        <Input
+          padding={30}
+          marginVertical={10}
+          size='$2'
+          borderWidth={2}
+          borderRadius={20}
+          placeholder={'Password'}
+          onChangeText={(e) => setPassword(e)}
+        />
+      </YStack>
+
+      <YStack paddingBottom={25} flex={1} justifyContent={'flex-end'}>
+       <XStack padding={10} justifyContent={'center'}>
+          <Text c='$grey' fontSize={'$2'}>Already have an account?</Text>
+          <Button onPress={() => navigation.navigate('LoginPage')}>Sign In</Button>
+        </XStack>
+
+        <Button
+          size={60}
+          marginBottom={10}
+          backgroundColor={'$gray9'}
+          shadowColor={'$black'}
+          shadowRadius={2}
+          shadowOpacity={.1}
+          borderRadius={20}
+          onPress={signUpHandler}>
+            <Text c='$white' fontSize={'$2'} fontWeight={'$1'}>Sign Up</Text>
+        </Button>
+      </YStack>
     </Stack>
   );
 };
