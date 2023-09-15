@@ -34,7 +34,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
           Welcome back, {user?.user.first_name}
         </Text>
       </Stack>
-      <Stack paddingBottom={10}>
+      <Stack pb={10}>
         <Text color='$grey' fontSize={'$2'}>
           How would you like to study today?
         </Text>
@@ -43,8 +43,8 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
       <Stack theme="light">
         <Button
           size={90}
-          marginBottom={10}
-          backgroundColor={buttonColor}
+          mb={10}
+          bg={buttonColor}
           shadowColor={'black'}
           shadowRadius={2}
           shadowOpacity={.1}
@@ -56,8 +56,8 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
         </Button>
         <Button
           size={90}
-          marginBottom={10}
-          backgroundColor={buttonColor}
+          mb={10}
+          bg={buttonColor}
           shadowColor={'black'}
           shadowRadius={2}
           shadowOpacity={.1}

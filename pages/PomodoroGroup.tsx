@@ -13,7 +13,7 @@ const PomodoroGroup: React.FC<PomodoroGroupProps> = () => {
                 <Button
                 size={90}
                 marginVertical={10}
-                backgroundColor={'white'}
+                bg={'white'}
                 shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}>
@@ -22,7 +22,7 @@ const PomodoroGroup: React.FC<PomodoroGroupProps> = () => {
                 <Button
                 size={90}
                 marginVertical={10}
-                backgroundColor={'white'}
+                bg={'white'}
                 shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}>

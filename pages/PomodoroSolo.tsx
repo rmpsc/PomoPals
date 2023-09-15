@@ -94,8 +94,8 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               />
               <Button
                 size='$2'
-                margin={5}
-                backgroundColor={'white'}
+                m={5}
+                bg={'white'}
                 shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
@@ -104,8 +104,8 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               </Button>
               <Button
                 size='$2'
-                margin={5}
-                backgroundColor={'white'}
+                m={5}
+                bg={'white'}
                 shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
@@ -127,8 +127,8 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               />
               <Button
                 size='$2'
-                margin={5}
-                backgroundColor={'white'}
+                m={5}
+                bg={'white'}
                 shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
@@ -137,8 +137,8 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               </Button>
               <Button
                 size='$2'
-                margin={5}
-                backgroundColor={'white'}
+                m={5}
+                bg={'white'}
                 shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
@@ -165,7 +165,7 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
             <Button
               size={90}
               marginVertical={10}
-              backgroundColor={'white'}
+              bg={'white'}
               shadowColor={'black'}
               shadowRadius={2}
               shadowOpacity={.1}

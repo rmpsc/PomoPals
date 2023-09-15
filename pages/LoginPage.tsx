@@ -43,8 +43,8 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
   }
 
   return (
-    <Stack theme="light" paddingHorizontal={25} paddingVertical={20} flex={1} flexDirection={'column'}>
-      <YStack paddingBottom={50}>
+    <Stack theme="light" paddingHorizontal={25} paddingVertical={20} f={1} fd={'column'}>
+      <YStack pb={50}>
         <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$1'}>
           Let's sign you in.
         </Text>
@@ -58,27 +58,27 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
       <YStack>
         <Input
-          padding={30}
+          p={30}
           marginVertical={10}
           size='$2'
           borderWidth={2}
-          borderRadius={20}
+          br={20}
           placeholder={'Email'}
           onChangeText={(e) => setUsername(e)}
         />
         <Input
-          padding={30}
+          p={30}
           marginVertical={10}
           size='$2'
           borderWidth={2}
-          borderRadius={20}
+          br={20}
           placeholder={'Password'}
           onChangeText={(e) => setPassword(e)}
         />
       </YStack>
 
-      <YStack paddingBottom={25} flex={1} justifyContent={'flex-end'}>
-        <XStack padding={10} justifyContent={'center'}>
+      <YStack pb={25} f={1} jc={'flex-end'}>
+        <XStack p={10} jc={'center'}>
           <Text color='$grey' fontSize={'$2'}>Don't have an account?</Text>
           <Button onPress={() => navigation.navigate('SignupPage')}>
             <Text color='$blue10' fontSize={'$2'}>Sign Up</Text>
@@ -87,12 +87,12 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
         <Button
           size={60}
-          marginBottom={10}
-          backgroundColor={'$gray9'}
+          mb={10}
+          bg={'$gray9'}
           shadowColor={'black'}
           shadowRadius={2}
           shadowOpacity={.1}
-          borderRadius={20}
+          br={20}
           onPress={signInWithEmail}>
             <Text color='$white' fontSize={'$2'} fontWeight={'$1'}>Sign In</Text>
         </Button>
