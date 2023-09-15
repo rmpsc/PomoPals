@@ -77,13 +77,13 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
     return (
         <Stack paddingHorizontal={25} theme='light'>
           <Stack paddingVertical={30}>
-            <Text c='$black' fontSize={'$1'} fontWeight={'$6'}>
+            <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
               {topText}
             </Text>
           </Stack>
           <YStack>
             <XStack p={10} ai='center' jc='center'>
-              <Text paddingHorizontal={5} c='$black' fontSize={'$2'}>Pomo</Text>
+              <Text paddingHorizontal={5} color='black' fontSize={'$2'}>Pomo</Text>
               <Input
                 size='$2'
                 value={pomodoroTimerMin.toString()}
@@ -96,25 +96,25 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
                 size='$2'
                 margin={5}
                 backgroundColor={'white'}
-                shadowColor={'$black'}
+                shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
                 onPress={handlePomoTimeDecrease}>
-                <Text c='$black' fontSize={'$2'}>-</Text>
+                <Text color='black' fontSize={'$2'}>-</Text>
               </Button>
               <Button
                 size='$2'
                 margin={5}
                 backgroundColor={'white'}
-                shadowColor={'$black'}
+                shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
                 onPress={handlePomoTimeIncrease}>
-                <Text c='$black' fontSize={'$2'}>+</Text>
+                <Text color='black' fontSize={'$2'}>+</Text>
               </Button>
             </XStack>
             <XStack p={10} ai='center' jc='center'>
-              <Text paddingHorizontal={5} c='$black' fontSize={'$2'}>
+              <Text paddingHorizontal={5} color='black' fontSize={'$2'}>
                 Break
               </Text>
               <Input
@@ -129,21 +129,21 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
                 size='$2'
                 margin={5}
                 backgroundColor={'white'}
-                shadowColor={'$black'}
+                shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
                 onPress={handleBreakTimeDecrease}>
-                <Text c='$black' fontSize={'$2'}>-</Text>
+                <Text color='black' fontSize={'$2'}>-</Text>
               </Button>
               <Button
                 size='$2'
                 margin={5}
                 backgroundColor={'white'}
-                shadowColor={'$black'}
+                shadowColor={'black'}
                 shadowRadius={2}
                 shadowOpacity={.1}
                 onPress={handleBreakTimeIncrease}>
-                <Text c='$black' fontSize={'$2'}>+</Text>
+                <Text color='black' fontSize={'$2'}>+</Text>
               </Button>
             </XStack>
           </YStack>
@@ -157,7 +157,7 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               onComplete={handleTimerComplete}
             >
               {({ remainingTime }) =>
-                <Text color={'$black'} fontSize={'$6'}>
+                <Text color={'black'} fontSize={'$6'}>
                   {remainingTime}
                 </Text>
               }
@@ -166,11 +166,11 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
               size={90}
               marginVertical={10}
               backgroundColor={'white'}
-              shadowColor={'$black'}
+              shadowColor={'black'}
               shadowRadius={2}
               shadowOpacity={.1}
               onPress={handleButtonPress}>
-              <Text c='$black' fontSize={'$2'}>{startButtonText}</Text>
+              <Text color='black' fontSize={'$2'}>{startButtonText}</Text>
             </Button>
           </Stack>
         </Stack>

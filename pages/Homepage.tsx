@@ -30,12 +30,12 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
   return (
     <Stack paddingHorizontal={25}>
       <Stack paddingVertical={30}>
-        <Text c='$black' fontSize={'$1'} fontWeight={'$6'}>
+        <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
           Welcome back, {user?.user.first_name}
         </Text>
       </Stack>
       <Stack paddingBottom={10}>
-        <Text c='$grey' fontSize={'$2'}>
+        <Text color='$grey' fontSize={'$2'}>
           How would you like to study today?
         </Text>
       </Stack>
@@ -45,27 +45,27 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
           size={90}
           marginBottom={10}
           backgroundColor={buttonColor}
-          shadowColor={'$black'}
+          shadowColor={'black'}
           shadowRadius={2}
           shadowOpacity={.1}
           onPress={() =>
             navigation.navigate('PomodoroSolo')
           }
         >
-          <Text c='$black' fontSize={'$2'}>Study solo</Text>
+          <Text color='black' fontSize={'$2'}>Study solo</Text>
         </Button>
         <Button
           size={90}
           marginBottom={10}
           backgroundColor={buttonColor}
-          shadowColor={'$black'}
+          shadowColor={'black'}
           shadowRadius={2}
           shadowOpacity={.1}
           onPress={() =>
             navigation.navigate('PomodoroGroup')
           }
         >
-          <Text c='$black' fontSize={'$2'}>Study in a group</Text>
+          <Text color='black' fontSize={'$2'}>Study in a group</Text>
         </Button>
       </Stack>
       <YStack>

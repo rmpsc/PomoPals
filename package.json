@@ -13,6 +13,7 @@
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
     "@supabase/supabase-js": "^2.32.0",
+    "@tamagui/config": "^1.65.0",
     "@tamagui/shorthands": "^1.50.2",
     "@tamagui/themes": "^1.50.2",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",

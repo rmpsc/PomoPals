@@ -45,13 +45,13 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
   return (
     <Stack theme="light" paddingHorizontal={25} paddingVertical={20} flex={1} flexDirection={'column'}>
       <YStack paddingBottom={50}>
-        <Text paddingVertical={5} c='$black' fontSize={'$1'} fontWeight={'$1'}>
+        <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$1'}>
           Let's sign you in.
         </Text>
-        <Text paddingVertical={5} c='$black' fontSize={'$1'} fontWeight={'$2'}>
+        <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$2'}>
           Welcome back.
         </Text>
-        <Text paddingVertical={5} c='$black' fontSize={'$1'} fontWeight={'$2'}>
+        <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$2'}>
           You've been missed!
         </Text>
       </YStack>
@@ -79,9 +79,9 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
       <YStack paddingBottom={25} flex={1} justifyContent={'flex-end'}>
         <XStack padding={10} justifyContent={'center'}>
-          <Text c='$grey' fontSize={'$2'}>Don't have an account?</Text>
+          <Text color='$grey' fontSize={'$2'}>Don't have an account?</Text>
           <Button onPress={() => navigation.navigate('SignupPage')}>
-            <Text c='$blue10' fontSize={'$2'}>Sign Up</Text>
+            <Text color='$blue10' fontSize={'$2'}>Sign Up</Text>
           </Button>
         </XStack>
 
@@ -89,12 +89,12 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
           size={60}
           marginBottom={10}
           backgroundColor={'$gray9'}
-          shadowColor={'$black'}
+          shadowColor={'black'}
           shadowRadius={2}
           shadowOpacity={.1}
           borderRadius={20}
           onPress={signInWithEmail}>
-            <Text c='$white' fontSize={'$2'} fontWeight={'$1'}>Sign In</Text>
+            <Text color='$white' fontSize={'$2'} fontWeight={'$1'}>Sign In</Text>
         </Button>
       </YStack>
     </Stack>

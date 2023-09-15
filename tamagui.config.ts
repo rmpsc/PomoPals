@@ -1,18 +1,8 @@
-import { themes } from '@tamagui/themes'
-import { createFont, createTamagui, createTokens } from 'tamagui'
+import { shorthands } from '@tamagui/shorthands'
 
-const size = {
-  0: 0,
-  'true': 18,
-  1: 30,
-  2: 20,
-};
+import { themes, tokens } from '@tamagui/themes'
 
-const space = {
-  ...size,
-  '-0': -0,
-  '-1': -5
-};
+import { createTamagui, createFont } from 'tamagui' // or '@tamagui/core'
 
 const interFont = createFont({
   family: 'Arial',
@@ -51,63 +41,18 @@ const interFont = createFont({
   },
 })
 
-const tokens = createTokens({
-  size,
-  space,
-  color: {
-    tomato: '#FF6347',
-    lightPurple: '#EDD2F3',
-    darkPurple: '#544179',
-    black: '#000000',
-    grey: '#808080',
-    white: '#FFFFFF'
-  },
-  radius: {
-    0: 0,
-    1: 3,
-    2: 5,
-    3: 10,
-    4: 15,
-    5: 20
-  },
-  zIndex: {
-    0: 0,
-    1: 100,
-    2: 200,
-    3: 300,
-    4: 400,
-    5: 500
-  }
-})
-
-const shorthands = {
-  ai: 'alignItems',
-  bg: 'backgroundColor',
-  br: 'borderRadius',
-  f: 'flex',
-  h: 'height',
-  jc: 'justifyContent',
-  m: 'margin',
-  p: 'padding',
-  w: 'width',
-  lh: 'lineHeight',
-  ta: 'textAlign',
-  fd: 'flexDirection',
-  c: 'color',
-} as const;
-
-const config = createTamagui({
+const appConfig = createTamagui({
   themes,
   tokens,
   shorthands,
   fonts: {
     body: interFont,
   }
-});
-
-type Conf = typeof config;
+})
+export type AppConfig = typeof appConfig
 declare module 'tamagui' {
-  interface TamaguiCustomConfig extends Conf {}
-}
 
-export default config;
+  interface TamaguiCustomConfig extends AppConfig {}
+
+}
+export default appConfig
