@@ -56,20 +56,18 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
         </Text>
       </YStack>
 
-      <YStack>
+      <YStack f={1} jc="space-around">
         <Input
-          p={30}
-          marginVertical={10}
-          size='$2'
+          size="$5"
+          fontSize="$2"
           borderWidth={2}
           br={20}
           placeholder={'Email'}
           onChangeText={(e) => setUsername(e)}
         />
         <Input
-          p={30}
-          marginVertical={10}
-          size='$2'
+          size="$5"
+          fontSize="$2"
           borderWidth={2}
           br={20}
           placeholder={'Password'}
@@ -77,7 +75,7 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
         />
       </YStack>
 
-      <YStack pb={25} f={1} jc={'flex-end'}>
+      <YStack pb={25} f={2} jc={'flex-end'}>
         <XStack p={10} jc={'center'} ai="center">
           <Text paddingRight={10} color="gray" fontSize={'$2'}>Don't have an account?</Text>
           <Text onPress={() => navigation.navigate('SignupPage')}  color="$blue10" fontSize={'$2'}>Sign Up</Text>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { Stack, XStack, YStack, Text, Button, Input } from 'tamagui';
+import { Stack, XStack, YStack, Text, Button, Input, TextArea } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
@@ -63,38 +63,34 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
         </Text>
       </YStack>
 
-      <YStack>
+      <YStack f={1} jc="space-around">
         <Input
-          p={30}
-          marginVertical={10}
-          size='$2'
+          size="$5"
+          fontSize="$2"
           borderWidth={2}
           br={20}
           placeholder={'First name'}
           onChangeText={(e) => setFirstName(e)}
         />
         <Input
-          p={30}
-          marginVertical={10}
-          size='$2'
+          size="$5"
+          fontSize="$2"
           borderWidth={2}
           br={20}
           placeholder={'Last name'}
           onChangeText={(e) => setLastName(e)}
         />
         <Input
-          p={30}
-          marginVertical={10}
-          size='$2'
+          size="$5"
+          fontSize="$2"
           borderWidth={2}
           br={20}
           placeholder={'Email'}
           onChangeText={(e) => setEmail(e)}
         />
         <Input
-          p={30}
-          marginVertical={10}
-          size='$2'
+          size="$5"
+          fontSize="$2"
           borderWidth={2}
           br={20}
           placeholder={'Password'}
