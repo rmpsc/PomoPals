@@ -109,13 +109,6 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
         </XStack>
 
         <Button
-          size={60}
-          mb={10}
-          bg={'$gray9'}
-          shadowColor={'black'}
-          shadowRadius={2}
-          shadowOpacity={.1}
-          br={20}
           onPress={signUpHandler}>
             <Text color='$white' fontSize={'$2'} fontWeight={'$1'}>Sign Up</Text>
         </Button>
