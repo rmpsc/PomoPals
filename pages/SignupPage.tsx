@@ -103,15 +103,16 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
       </YStack>
 
       <YStack pb={25} f={1} jc={'flex-end'}>
-       <XStack p={10} jc={'center'}>
-          <Text color='$grey' fontSize={'$2'}>Already have an account?</Text>
-          <Button onPress={() => navigation.navigate('LoginPage')}>Sign In</Button>
+       <XStack p={10} jc={'center'} ai="center">
+          <Text paddingRight={10} color="gray" fontSize={'$2'}>Already have an account?</Text>
+            <Text onPress={() => navigation.navigate('LoginPage')} color="$blue10" fontSize={18}>Sign In</Text>
         </XStack>
 
-        <Button
-          onPress={signUpHandler}>
-            <Text color='$white' fontSize={'$2'} fontWeight={'$1'}>Sign Up</Text>
-        </Button>
+        <YStack theme="dark_alt1_Button" opacity={.8}>
+          <Button size="$6" onPress={signUpHandler}>
+            <Text color="white" fontSize={'$2'} fontWeight={'$1'}>Sign Up</Text>
+          </Button>
+        </YStack>
       </YStack>
     </Stack>
   );
