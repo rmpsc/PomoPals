@@ -5,6 +5,7 @@ import { Stack, XStack, YStack, Text, Button, Input, TextArea } from 'tamagui';
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
 import { UserContext } from './UserContext';
+import LoginForm from '../components/LoginForm';
 
 interface SignupPageProps {navigation}
 
@@ -64,38 +65,10 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
       </YStack>
 
       <YStack f={1} jc="space-around">
-        <Input
-          size="$5"
-          fontSize="$2"
-          borderWidth={2}
-          br={20}
-          placeholder={'First name'}
-          onChangeText={(e) => setFirstName(e)}
-        />
-        <Input
-          size="$5"
-          fontSize="$2"
-          borderWidth={2}
-          br={20}
-          placeholder={'Last name'}
-          onChangeText={(e) => setLastName(e)}
-        />
-        <Input
-          size="$5"
-          fontSize="$2"
-          borderWidth={2}
-          br={20}
-          placeholder={'Email'}
-          onChangeText={(e) => setEmail(e)}
-        />
-        <Input
-          size="$5"
-          fontSize="$2"
-          borderWidth={2}
-          br={20}
-          placeholder={'Password'}
-          onChangeText={(e) => setPassword(e)}
-        />
+        <LoginForm placeholder="First name" onChangeText={setFirstName}/>
+        <LoginForm placeholder="Last name" onChangeText={setLastName}/>
+        <LoginForm placeholder="Email" onChangeText={setEmail}/>
+        <LoginForm placeholder="Password" onChangeText={setPassword}/>
       </YStack>
 
       <YStack pb={25} f={1} jc={'flex-end'}>

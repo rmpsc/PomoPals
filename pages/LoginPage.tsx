@@ -5,6 +5,7 @@ import { Stack, XStack, YStack, Text, Button, Input } from 'tamagui';
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
 import { UserContext } from './UserContext';
+import LoginForm from '../components/LoginForm';
 
 interface LoginPageProps {navigation}
 
@@ -12,19 +13,19 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
   /* takes in project url and anon key */
   const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk');
 
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   // access the user context
   const { setUser } = useContext(UserContext)
 
   async function signInWithEmail() {
-    if (!username || !password) {
+    if (!email || !password) {
       console.log('missing username or password');
       return;
     }
     const { data, error } = await supabase.auth.signInWithPassword({
-      email: username,
+      email: email,
       password: password,
     })
     if (error) {
@@ -57,22 +58,8 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
       </YStack>
 
       <YStack f={1} jc="space-around">
-        <Input
-          size="$5"
-          fontSize="$2"
-          borderWidth={2}
-          br={20}
-          placeholder={'Email'}
-          onChangeText={(e) => setUsername(e)}
-        />
-        <Input
-          size="$5"
-          fontSize="$2"
-          borderWidth={2}
-          br={20}
-          placeholder={'Password'}
-          onChangeText={(e) => setPassword(e)}
-        />
+        <LoginForm placeholder="Email" onChangeText={setEmail}/>
+        <LoginForm placeholder="Password" onChangeText={setPassword}/>
       </YStack>
 
       <YStack pb={25} f={2} jc={'flex-end'}>
