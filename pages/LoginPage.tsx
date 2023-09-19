@@ -6,6 +6,7 @@ import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
 import { UserContext } from './UserContext';
 import LoginForm from '../components/LoginForm';
+import Header from '../components/Header';
 
 interface LoginPageProps {navigation}
 
@@ -46,15 +47,9 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
   return (
     <Stack theme="light" paddingHorizontal={25} paddingVertical={20} f={1} fd={'column'}>
       <YStack pb={50}>
-        <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$1'}>
-          Let's sign you in.
-        </Text>
-        <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$2'}>
-          Welcome back.
-        </Text>
-        <Text paddingVertical={5} color='black' fontSize={'$1'} fontWeight={'$2'}>
-          You've been missed!
-        </Text>
+        <Header title="Let's sign you in." weight="$1"/>
+        <Header title="Welcome back." weight="$2"/>
+        <Header title="You've been missed!" weight="$2"/>
       </YStack>
 
       <YStack f={1} jc="space-around">
