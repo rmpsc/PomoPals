@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { Stack, XStack, YStack, Text, Button, Input } from 'tamagui';
+import { Button, Stack, Text, XStack, YStack } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
-import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
-import { UserContext } from './UserContext';
-import LoginForm from '../components/LoginForm';
+import 'react-native-url-polyfill/auto';
 import Header from '../components/Header';
+import LoginForm from '../components/LoginForm';
+import { UserContext } from './UserContext';
 
 interface LoginPageProps {navigation}
 

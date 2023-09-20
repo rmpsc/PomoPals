@@ -1,15 +1,14 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { TamaguiProvider } from 'tamagui';
-import config from './tamagui.config';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { TamaguiProvider } from 'tamagui';
 import Homepage from './pages/Homepage';
-import PomodoroSolo from './pages/PomodoroSolo';
-import PomodoroGroup from './pages/PomodoroGroup';
 import LoginPage from './pages/LoginPage';
+import PomodoroGroup from './pages/PomodoroGroup';
+import PomodoroSolo from './pages/PomodoroSolo';
 import SignupPage from './pages/SignupPage';
 import { UserContextProvider } from './pages/UserContext';
+import config from './tamagui.config';
 
 const Stacks = createNativeStackNavigator();
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Text, Button } from 'tamagui';
+import { Button, Stack, Text } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 
 interface PomodoroGroupProps {}

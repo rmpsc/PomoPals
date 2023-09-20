@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Stack, Text, Button, Input, XStack, YStack } from 'tamagui';
+import React, { useEffect, useState } from 'react';
+import { Button, Input, Stack, Text, XStack, YStack } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
+import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 
 interface PomodoroSoloProps {}
 

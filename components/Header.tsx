@@ -1,5 +1,5 @@
-import React from 'react'
-import { FontWeightTokens, Text } from 'tamagui'
+import React from 'react';
+import { FontWeightTokens, Text } from 'tamagui';
 
 interface HeaderProps {
     title: string;
