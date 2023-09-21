@@ -28,7 +28,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
   }
 
   return (
-    <Stack paddingHorizontal={25}>
+    <Stack bg="white" paddingHorizontal={25}>
       <Stack paddingVertical={30}>
         <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
           Welcome back, {user?.user.first_name}

@@ -58,7 +58,7 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
   }
 
   return (
-    <Stack theme="light" paddingHorizontal={25} paddingVertical={20} f={1} fd={'column'}>
+    <Stack bg="white" theme="light" paddingHorizontal={25} paddingVertical={20} f={1} fd={'column'}>
       <YStack pb={50}>
         <Header title="Let's get you started." weight="$1"/>
       </YStack>
