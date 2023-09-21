@@ -4,9 +4,10 @@ import { Input } from 'tamagui';
 interface LoginFormProps {
     placeholder: string;
     onChangeText: (text: string) => void;
+    secureTextEntry?: boolean;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({placeholder, onChangeText}) => {
+const LoginForm: React.FC<LoginFormProps> = ({placeholder, onChangeText, secureTextEntry}) => {
     return (
         <Input
           size="$5"
@@ -15,6 +16,7 @@ const LoginForm: React.FC<LoginFormProps> = ({placeholder, onChangeText}) => {
           br={20}
           placeholder={placeholder}
           onChangeText={onChangeText}
+          secureTextEntry={secureTextEntry}
         />
     );
 }

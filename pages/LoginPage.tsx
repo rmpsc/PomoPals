@@ -54,7 +54,7 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
       <YStack f={1} jc="space-around">
         <LoginForm placeholder="Email" onChangeText={setEmail}/>
-        <LoginForm placeholder="Password" onChangeText={setPassword}/>
+        <LoginForm placeholder="Password" onChangeText={setPassword} secureTextEntry={true}/>
       </YStack>
 
       <YStack pb={25} f={2} jc={'flex-end'}>

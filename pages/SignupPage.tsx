@@ -67,7 +67,7 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
         <LoginForm placeholder="First name" onChangeText={setFirstName}/>
         <LoginForm placeholder="Last name" onChangeText={setLastName}/>
         <LoginForm placeholder="Email" onChangeText={setEmail}/>
-        <LoginForm placeholder="Password" onChangeText={setPassword}/>
+        <LoginForm placeholder="Password" onChangeText={setPassword} secureTextEntry={true}/>
       </YStack>
 
       <YStack pb={25} f={1} jc={'flex-end'}>
