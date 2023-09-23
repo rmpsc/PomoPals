@@ -45,7 +45,7 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
   }
 
   return (
-    <Stack bg="white" theme="light" paddingHorizontal={25} paddingVertical={20} f={1} fd={'column'}>
+    <Stack bg="white" theme="light" paddingHorizontal={25} paddingTop={60} paddingBottom={20} f={1} fd={'column'}>
       <YStack pb={50}>
         <Header title="Let's sign you in." weight="$1"/>
         <Header title="Welcome back." weight="$2"/>

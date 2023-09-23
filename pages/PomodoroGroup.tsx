@@ -6,7 +6,7 @@ interface PomodoroGroupProps {}
 
 const PomodoroGroup: React.FC<PomodoroGroupProps> = () => {
     return (
-        <Stack bg="white" paddingHorizontal={25}>
+        <Stack bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20}>
             <Text color='black' fontSize={'$1'} fontWeight={'$6'}>Room ID: 123</Text>
             <Text color='$grey' fontSize={'$2'}>Invite your friends or join them!</Text>
             <Stack theme='light'>

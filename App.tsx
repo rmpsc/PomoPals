@@ -21,27 +21,27 @@ export default function App() {
           <Stacks.Screen
             name='SignupPage'
             component={SignupPage}
-            options={{ title: 'Sign Up' }}
+            options={{headerShown: false}}
           />
           <Stacks.Screen
             name='LoginPage'
             component={LoginPage}
-            options={{ title: 'Login' }}
+            options={{headerShown: false}}
           />
           <Stacks.Screen
             name='Homepage'
             component={Homepage}
-            options={{ title: 'PomoPals' }}
+            options={{headerShown: false}}
           />
           <Stacks.Screen
             name='PomodoroSolo'
             component={PomodoroSolo}
-            options={{ title: 'Solo Pomodoro' }}
+            options={{headerShown: false}}
           />
           <Stacks.Screen
             name='PomodoroGroup'
             component={PomodoroGroup}
-            options={{ title: 'Group Pomodoro' }}
+            options={{headerShown: false}}
           />
         </Stacks.Navigator>
       </NavigationContainer>

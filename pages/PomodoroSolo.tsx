@@ -75,7 +75,7 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
     };
 
     return (
-        <Stack bg="white" paddingHorizontal={25} theme='light'>
+        <Stack bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20} theme='light'>
           <Stack paddingVertical={30}>
             <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
               {topText}
