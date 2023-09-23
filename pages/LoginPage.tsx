@@ -63,7 +63,7 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
           <Text onPress={() => navigation.navigate('SignupPage')}  color="$blue10" fontSize={'$2'}>Sign Up</Text>
         </XStack>
 
-        <YStack theme="dark_alt1_Button" opacity={.8}>
+        <YStack theme="blue_active_Button" opacity={.8}>
           <Button size="$6" onPress={signInWithEmail}>
             <Text color="white" fontSize={'$2'} fontWeight={'$1'}>Sign In</Text>
           </Button>
