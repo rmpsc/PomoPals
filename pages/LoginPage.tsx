@@ -7,6 +7,7 @@ import 'react-native-url-polyfill/auto';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
 import { UserContext } from './UserContext';
+import { storeUserToken } from '../services/AuthenticationServices';
 
 interface LoginPageProps {navigation}
 
@@ -40,6 +41,10 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
       };
 
       setUser(currentUser)
+      // add user to AsyncStorage
+      // access token jwt
+      // TODO: check token refresh/expiry
+      await storeUserToken(data.session.access_token)
       navigation.navigate('Homepage')
     }
   }

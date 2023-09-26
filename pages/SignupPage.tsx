@@ -7,6 +7,7 @@ import 'react-native-url-polyfill/auto';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
 import { UserContext } from './UserContext';
+import { storeUserToken } from '../services/AuthenticationServices';
 
 interface SignupPageProps {navigation}
 
@@ -53,6 +54,8 @@ const SignupPage: React.FC<SignupPageProps> = ({navigation}) => {
       };
 
       setUser(currentUser)
+      // add user to AsyncStorage
+      await storeUserToken(data.user.user_metadata.token)
       navigation.navigate('Homepage')
     }
   }

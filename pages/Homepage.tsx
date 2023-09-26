@@ -32,7 +32,8 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
       <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20}>
         <Stack paddingVertical={30}>
           <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
-            Welcome back, {user?.user.first_name}
+            {/* Welcome back, {user?.user.first_name} */}
+            Welcome back!
           </Text>
         </Stack>
         <Stack pb={10}>

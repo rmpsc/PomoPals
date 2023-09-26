@@ -5,14 +5,16 @@ export const storeUserToken = async (token) => {
     try {
         await AsyncStorage.setItem('userToken', token);
     } catch (e) {
+        console.log('Error storing token:', e);
         // TODO: handle unexpected api errors possibly due to network issues, storage, etc
     }
 }
 
 export const getUserToken = async () => {
     try {
-        await AsyncStorage.getItem('userToken');
+        return await AsyncStorage.getItem('userToken');
     } catch (e) {
+        console.log('error fetching token');
         // TODO: handle unexpected api errors possibly due to network issues, storage, etc
     }
 }
