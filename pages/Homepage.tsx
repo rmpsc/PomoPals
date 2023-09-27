@@ -1,26 +1,49 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { StyleSheet } from 'react-native';
+import { ActivityIndicator, StyleSheet } from 'react-native';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { Stack, XStack, YStack, Text, Button, Theme, ListItem } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
-import { UserContext } from './UserContext';
+import { UserContext, useUser } from './UserContext';
 import BottomTray from '../components/BottomTray';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-interface HomepageProps {navigation}
+interface HomepageProps {token, navigation}
 
-const Homepage: React.FC<HomepageProps> = ({navigation}) => {
+const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   /* takes in project url and anon key */
-  const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk');
+  const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk', {
+    auth: {
+      persistSession: true,
+      storage: AsyncStorage
+    }
+  });
   
   const [countries, setCountries] = useState([]);
   const [buttonColor, setButtonColor] = useState('white');
+  const [isLoading, setIsLoading] = useState(true);
 
-  const user = useContext(UserContext)
+  const { setUser } = useContext(UserContext)
+
+  const updateCurrentUser = async () => {
+    const { data: { user } } = await supabase.auth.getUser(token)
+    console.log('user:', user)
+    const currentUser = {
+      first_name: user.user_metadata.first_name,
+      last_name: user.user_metadata.last_name,
+    };
+    console.log(user.user_metadata.first_name)
+    console.log(user.user_metadata.last_name)
+    setUser(currentUser)
+    setIsLoading(false)
+  }
+
+  const user = useContext(UserContext);
   
   useEffect(() => {
     getCountries();
+    updateCurrentUser();
   }, [])
 
   async function getCountries() {
@@ -28,12 +51,17 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
     setCountries(data);
   }
 
+  if (isLoading) {
+    return (
+      <ActivityIndicator size="large" color="#00ff00" />
+    )
+  }
+
   return (
       <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20}>
         <Stack paddingVertical={30}>
           <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
-            {/* Welcome back, {user?.user.first_name} */}
-            Welcome back!
+            Welcome back, {user?.user.first_name}
           </Text>
         </Stack>
         <Stack pb={10}>

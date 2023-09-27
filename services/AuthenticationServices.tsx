@@ -19,4 +19,12 @@ export const getUserToken = async () => {
     }
 }
 
+export const removeUserToken = async () => {
+    try {
+        await AsyncStorage.removeItem('userToken');
+    } catch (e) {
+        console.log('Error removing token:', e);
+    }
+}
+
 // TODO: add other auth related functions (login, signup)

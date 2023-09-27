@@ -8,13 +8,18 @@ import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
 import { UserContext } from './UserContext';
 import { storeUserToken } from '../services/AuthenticationServices';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface LoginPageProps {navigation}
 
 const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
   /* takes in project url and anon key */
-  const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk');
-
+  const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk', {
+    auth: {
+      persistSession: true,
+      storage: AsyncStorage
+    }
+  });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
