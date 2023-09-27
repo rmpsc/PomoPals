@@ -1,8 +1,8 @@
 **A study app that utilizes the pomodoro technique**
 ## Features and future plans
-- study solo
-- group studying
+- solo & group studying
 - profiles
+- weekly study tracker
 
 ## Running locally
 - locate cloned dir `cd path/to/your/project`
