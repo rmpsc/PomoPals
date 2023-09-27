@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { Button, ListItem, Stack, Text, YStack } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
@@ -22,7 +21,6 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   
   const [countries, setCountries] = useState([]);
   const [buttonColor, setButtonColor] = useState('white');
-  const [isLoading, setIsLoading] = useState(true);
 
   const { setUser } = useContext(UserContext)
 
@@ -36,7 +34,6 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
     console.log(user.user_metadata.first_name)
     console.log(user.user_metadata.last_name)
     setUser(currentUser)
-    setIsLoading(false)
   }
 
   const user = useContext(UserContext);
@@ -49,12 +46,6 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   async function getCountries() {
     const { data } = await supabase.from("countries").select();
     setCountries(data);
-  }
-
-  if (isLoading) {
-    return (
-      <ActivityIndicator size="large" color="#00ff00" />
-    )
   }
 
   return (
