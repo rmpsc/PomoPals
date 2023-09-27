@@ -2,13 +2,13 @@ import React, { useContext, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { Button, Stack, Text, XStack, YStack } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
-import { UserContext } from './UserContext';
 import { storeUserToken } from '../services/AuthenticationServices';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserContext } from './UserContext';
 
 interface LoginPageProps {navigation}
 

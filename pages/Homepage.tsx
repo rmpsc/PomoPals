@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { ActivityIndicator, StyleSheet } from 'react-native';
+import React, { useContext, useEffect, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { Stack, XStack, YStack, Text, Button, Theme, ListItem } from 'tamagui';
+import { Button, ListItem, Stack, Text, YStack } from 'tamagui';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
-import 'react-native-url-polyfill/auto';
-import { createClient } from '@supabase/supabase-js';
-import { UserContext, useUser } from './UserContext';
-import BottomTray from '../components/BottomTray';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createClient } from '@supabase/supabase-js';
+import 'react-native-url-polyfill/auto';
+import BottomTray from '../components/BottomTray';
+import { UserContext } from './UserContext';
 
 interface HomepageProps {token, navigation}
 
