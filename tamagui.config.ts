@@ -7,6 +7,7 @@ import { createTamagui, createFont } from 'tamagui' // or '@tamagui/core'
 const interFont = createFont({
   family: 'Arial',
   size: {
+    true: 35,
     1: 35,
     2: 18,
     3: 10,
@@ -35,9 +36,9 @@ const interFont = createFont({
   // for native only, alternate family based on weight/style
   face: {
     // pass in weights as keys
-    700: { normal: 'InterBold', italic: 'InterBold-Italic' },
-    800: { normal: 'InterBold', italic: 'InterBold-Italic' },
-    900: { normal: 'InterBold', italic: 'InterBold-Italic' },
+    700: { normal: 'Arial', italic: 'InterBold-Italic' },
+    800: { normal: 'Arial', italic: 'InterBold-Italic' },
+    900: { normal: 'Arial', italic: 'InterBold-Italic' },
   },
 })
 
