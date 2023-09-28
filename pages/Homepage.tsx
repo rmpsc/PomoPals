@@ -1,12 +1,20 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { Button, ListItem, Stack, Text, YStack } from 'tamagui';
-/* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createClient } from '@supabase/supabase-js';
+/* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
-import BottomTray from '../components/BottomTray';
+import PomodoroGroup from './PomodoroGroup';
+import PomodoroSolo from './PomodoroSolo';
+import StudyPage from './StudyPage';
 import { UserContext } from './UserContext';
+import ProfilePage from './ProfilePage';
+import HabitTrackerPage from './HabitTrackerPage';
+import PalsPage from './PalsPage';
+import SettingsPage from './SettingsPage';
+
+const Tab = createBottomTabNavigator();
 
 interface HomepageProps {token, navigation}
 
@@ -18,9 +26,6 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
       storage: AsyncStorage
     }
   });
-  
-  const [countries, setCountries] = useState([]);
-  const [buttonColor, setButtonColor] = useState('white');
 
   const { setUser } = useContext(UserContext)
 
@@ -35,70 +40,39 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
     console.log(user.user_metadata.last_name)
     setUser(currentUser)
   }
-
-  const user = useContext(UserContext);
   
   useEffect(() => {
-    getCountries();
     updateCurrentUser();
-  }, [])
-
-  async function getCountries() {
-    const { data } = await supabase.from("countries").select();
-    setCountries(data);
-  }
+  }, []);
 
   return (
-      <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20}>
-        <Stack paddingVertical={30}>
-          <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
-            Welcome back, {user?.user.first_name}
-          </Text>
-        </Stack>
-        <Stack pb={10}>
-          <Text color='$grey' fontSize={'$2'}>
-            How would you like to study today?
-          </Text>
-        </Stack>
-
-        <Stack theme="light">
-          <Button
-            size={90}
-            mb={10}
-            bg={buttonColor}
-            shadowColor={'black'}
-            shadowRadius={2}
-            shadowOpacity={.1}
-            onPress={() =>
-              navigation.navigate('PomodoroSolo')
-            }
-          >
-            <Text color='black' fontSize={'$2'}>Study solo</Text>
-          </Button>
-          <Button
-            size={90}
-            mb={10}
-            bg={buttonColor}
-            shadowColor={'black'}
-            shadowRadius={2}
-            shadowOpacity={.1}
-            onPress={() =>
-              navigation.navigate('PomodoroGroup')
-            }
-          >
-            <Text color='black' fontSize={'$2'}>Study in a group</Text>
-          </Button>
-        </Stack>
-        <YStack>
-          <ListItem>
-            {countries.map((country) => (
-              <Text key={country.name}>{country.name}</Text>
-            ))}
-          </ListItem>
-        </YStack>
-        <BottomTray></BottomTray>
-      </Stack>
-      
+    <Tab.Navigator initialRouteName='Study'>
+      <Tab.Screen
+        name="Profile"
+        component={ProfilePage}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Track"
+        component={HabitTrackerPage}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Study"
+        component={StudyPage}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Pals"
+        component={PalsPage}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="More"
+        component={SettingsPage}
+        options={{headerShown: false}}
+      />
+    </Tab.Navigator>
   );
 };
 
