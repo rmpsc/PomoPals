@@ -13,6 +13,7 @@ import ProfilePage from './ProfilePage';
 import HabitTrackerPage from './HabitTrackerPage';
 import PalsPage from './PalsPage';
 import SettingsPage from './SettingsPage';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -50,27 +51,52 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
       <Tab.Screen
         name="Profile"
         component={ProfilePage}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => (
+            <Ionicons name="md-person-circle" size={size} color={color} />
+          )
+        }}
       />
       <Tab.Screen
         name="Track"
         component={HabitTrackerPage}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => (
+            <Ionicons name="md-analytics-sharp" size={size} color={color} />
+          )
+        }}
       />
       <Tab.Screen
         name="Study"
         component={StudyPage}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => (
+            <Ionicons name="md-timer-sharp" size={size} color={color} />
+          )
+        }}
       />
       <Tab.Screen
         name="Pals"
         component={PalsPage}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => (
+            <Ionicons name="md-paw" size={size} color={color} />
+          )
+        }}
       />
       <Tab.Screen
         name="More"
         component={SettingsPage}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => (
+            <Ionicons name="md-settings" size={size} color={color} />
+          )
+        }}
       />
     </Tab.Navigator>
   );
