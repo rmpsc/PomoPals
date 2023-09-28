@@ -47,7 +47,7 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   }, []);
 
   return (
-    <Tab.Navigator initialRouteName='Study'>
+    <Tab.Navigator initialRouteName='Focus'>
       <Tab.Screen
         name="Profile"
         component={ProfilePage}
@@ -69,12 +69,12 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
         }}
       />
       <Tab.Screen
-        name="Study"
+        name="Focus"
         component={StudyPage}
         options={{
           headerShown: false,
           tabBarIcon: ({size, color}) => (
-            <Ionicons name="md-timer-sharp" size={size} color={color} />
+            <Ionicons name="md-timer-outline" size={size} color={color} />
           )
         }}
       />
@@ -84,7 +84,7 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
         options={{
           headerShown: false,
           tabBarIcon: ({size, color}) => (
-            <Ionicons name="md-paw" size={size} color={color} />
+            <Ionicons name="md-people-circle-outline" size={size} color={color} />
           )
         }}
       />
@@ -94,7 +94,7 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
         options={{
           headerShown: false,
           tabBarIcon: ({size, color}) => (
-            <Ionicons name="md-settings" size={size} color={color} />
+            <Ionicons name="md-ellipsis-horizontal-sharp" size={size} color={color} />
           )
         }}
       />
