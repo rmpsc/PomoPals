@@ -24,9 +24,9 @@ export default function App() {
     const checkUserToken = async () => {
       const userToken = await getUserToken();
       if (userToken) {
-        console.log('Retrieved token successfully:', userToken);
-        console.log(typeof userToken);
+        console.log('Retrieved token from AsyncStorage:', userToken.substring(0, 9));
         setInitialRoute('Homepage');
+        console.log('Set initial route to Homepage')
         setToken(userToken);
       }
       setIsLoading(false);

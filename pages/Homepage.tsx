@@ -32,17 +32,21 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const updateCurrentUser = async () => {
-    const { data: { user } } = await supabase.auth.getUser(token)
+    const { data: { user }, error } = await supabase.auth.getUser(token)
+    console.log("Attempting to update current user with token:", token.substring(0, 9))
     console.log('user:', user)
-    const currentUser = {
-      first_name: user.user_metadata.first_name,
-      last_name: user.user_metadata.last_name,
-    };
-    console.log(user.user_metadata.first_name)
-    console.log(user.user_metadata.last_name)
-    setUser(currentUser)
-    console.log("current user finished running ")
-    setIsLoading(false)
+    if (error) {
+      console.log("Error updating current user:", error)
+    } else {
+      const currentUser = {
+        first_name: user.user_metadata.first_name,
+        last_name: user.user_metadata.last_name,
+      }
+      setUser(currentUser)
+      console.log("Updated current user:", currentUser.first_name, currentUser.last_name)
+      setIsLoading(false)
+      console.log("Loading completed")
+    }
   }
   
   useEffect(() => {
