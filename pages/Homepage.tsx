@@ -1,12 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createClient } from '@supabase/supabase-js';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
-import PomodoroGroup from './PomodoroGroup';
-import PomodoroSolo from './PomodoroSolo';
 import StudyPage from './StudyPage';
 import { UserContext } from './UserContext';
 import ProfilePage from './ProfilePage';
@@ -14,6 +12,8 @@ import HabitTrackerPage from './HabitTrackerPage';
 import PalsPage from './PalsPage';
 import SettingsPage from './SettingsPage';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { ActivityIndicator } from 'react-native';
+import { Text, YStack } from 'tamagui';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,6 +29,7 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   });
 
   const { setUser } = useContext(UserContext)
+  const [isLoading, setIsLoading] = useState(true);
 
   const updateCurrentUser = async () => {
     const { data: { user } } = await supabase.auth.getUser(token)
@@ -40,11 +41,21 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
     console.log(user.user_metadata.first_name)
     console.log(user.user_metadata.last_name)
     setUser(currentUser)
+    console.log("current user finished running ")
+    setIsLoading(false)
   }
   
   useEffect(() => {
     updateCurrentUser();
   }, []);
+
+  if (isLoading) {
+    return (
+      <YStack f={1} ai='center' jc='center'>
+        <ActivityIndicator size="large" color={'black'} />
+      </YStack>
+    )
+  }
 
   return (
     <Tab.Navigator initialRouteName='Focus'>

@@ -11,6 +11,7 @@ import SignupPage from './pages/SignupPage';
 import { UserContextProvider } from './pages/UserContext';
 import { getUserToken, removeUserToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
+import SettingsPage from './pages/SettingsPage';
 
 const Stacks = createNativeStackNavigator();
 
@@ -25,8 +26,6 @@ export default function App() {
       if (userToken) {
         console.log('Retrieved token successfully:', userToken);
         console.log(typeof userToken);
-        // for log out testing
-        removeUserToken();
         setInitialRoute('Homepage');
         setToken(userToken);
       }
@@ -71,6 +70,10 @@ export default function App() {
             name='PomodoroGroup'
             component={PomodoroGroup}
             options={{headerShown: false}}
+          />
+          <Stacks.Screen
+            name='Settings'
+            component={SettingsPage}
           />
         </Stacks.Navigator>
       </NavigationContainer>
