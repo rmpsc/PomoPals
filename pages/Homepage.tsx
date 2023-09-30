@@ -13,7 +13,7 @@ import PalsPage from './PalsPage';
 import SettingsPage from './SettingsPage';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ActivityIndicator } from 'react-native';
-import { Text, YStack } from 'tamagui';
+import { YStack } from 'tamagui';
 
 const Tab = createBottomTabNavigator();
 

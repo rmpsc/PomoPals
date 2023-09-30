@@ -2,14 +2,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
-import { TamaguiProvider } from 'tamagui';
+import { TamaguiProvider, YStack } from 'tamagui';
 import Homepage from './pages/Homepage';
 import LoginPage from './pages/LoginPage';
 import PomodoroGroup from './pages/PomodoroGroup';
 import PomodoroSolo from './pages/PomodoroSolo';
 import SignupPage from './pages/SignupPage';
 import { UserContextProvider } from './pages/UserContext';
-import { getUserToken, removeUserToken } from './services/AuthenticationServices';
+import { getUserToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
 import SettingsPage from './pages/SettingsPage';
 
@@ -36,7 +36,11 @@ export default function App() {
 
   if (isLoading) {
     return (
-      <ActivityIndicator size="large" color="#00ff00" />
+      <TamaguiProvider config={config}>
+        <YStack f={1} ai='center' jc='center'>
+          <ActivityIndicator size="large" color={'black'} />
+        </YStack>
+      </TamaguiProvider>
     )
   }
 
