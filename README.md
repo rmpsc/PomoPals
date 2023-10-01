@@ -1,13 +1,21 @@
-**A study app that utilizes the pomodoro technique**
-## Features and future plans
-- solo & group studying
+**Pomopal - a study/focus app**
+## Features
+- solo & group focus sessions
 - profiles
-- weekly study tracker
+- focus habit tracker
 
-## Running locally
+## How to run locally
 - locate cloned dir `cd path/to/your/project`
-- install node.js and npm if not already installed `https://nodejs.org/en/download/`
+- this project currently uses node.js and npm for runtime & package mananging. install node.js and npm if not already installed `https://nodejs.org/en/download/`
 - this react project was created using expo which must be installed as well `npm install -g expo-cli`
 - install project dependencies with `npm install`
 - to run locally, use `npm start` or `expo start`
 - note: your project may not work correctly until you install the correct versions of the packages. use `npx expo install --fix`
+
+## APIs & Libraries
+### Tamagui
+[Tamagui](https://tamagui.dev/) is a modern styling & component library
+### Study/Focus timer
+Temporary component for countdown timer [here](https://www.npmjs.com/package/react-native-countdown-circle-timer)
+### AsyncStorage
+The [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/usage/) library is used to store user tokens locally for each session
