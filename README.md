@@ -1,8 +1,8 @@
 **Pomopal - a study/focus app**
 ## Features
 - **solo & group focus sessions**
-- profiles
-- focus habit tracker
+- **profiles**
+- **focus habit tracker**
 
 ## How to run locally
 - locate cloned dir `cd path/to/your/project`
