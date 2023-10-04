@@ -38,7 +38,7 @@ export default function App() {
     return (
       <TamaguiProvider config={config}>
         <YStack f={1} ai='center' jc='center'>
-          <ActivityIndicator size="large" color={'black'} />
+          <ActivityIndicator color={'black'} />
         </YStack>
       </TamaguiProvider>
     )

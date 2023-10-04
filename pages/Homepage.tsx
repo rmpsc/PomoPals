@@ -56,7 +56,7 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   if (isLoading) {
     return (
       <YStack f={1} ai='center' jc='center'>
-        <ActivityIndicator size="large" color={'black'} />
+        <ActivityIndicator color={'black'} />
       </YStack>
     )
   }
