@@ -27,4 +27,28 @@ export const removeUserToken = async () => {
     }
 }
 
+export const storeRefreshToken = async (refreshToken) => {
+    try {
+        await AsyncStorage.setItem('refreshToken', refreshToken)
+    } catch (e) {
+        console.log('Error storing refresh token', e);
+    }
+}
+
+export const getRefreshToken = async () => {
+    try {
+        return await AsyncStorage.getItem('refreshToken')
+    } catch (e) {
+        console.log('Error fetching refresh token', e);
+    }
+}
+
+export const removeRefreshToken = async () => {
+    try {
+        await AsyncStorage.removeItem('refreshToken');
+    } catch (e) {
+        console.log('Error removing token', e);
+    }
+}
+
 // TODO: add other auth related functions (login, signup)

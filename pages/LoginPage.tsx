@@ -7,7 +7,7 @@ import { createClient } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
-import { storeUserToken } from '../services/AuthenticationServices';
+import { storeRefreshToken, storeUserToken } from '../services/AuthenticationServices';
 import { UserContext } from './UserContext';
 
 interface LoginPageProps {navigation}
@@ -46,10 +46,13 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
       };
 
       setUser(currentUser)
+      console.log('Set current user via login page')
       // add user to AsyncStorage
       // access token jwt
       // TODO: check token refresh/expiry
       await storeUserToken(data.session.access_token)
+      await storeRefreshToken(data.session.refresh_token)
+      console.log('Stored current user via login page')
       navigation.navigate('Homepage')
     }
   }
