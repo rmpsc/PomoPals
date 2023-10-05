@@ -14,7 +14,7 @@ import SettingsPage from './SettingsPage';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ActivityIndicator } from 'react-native';
 import { YStack } from 'tamagui';
-import { getRefreshToken, getUserToken } from '../services/AuthenticationServices';
+import { getRefreshToken, getUserToken, updateCurrentUser } from '../services/AuthenticationServices';
 
 const Tab = createBottomTabNavigator();
 
@@ -32,55 +32,17 @@ const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
   const { setUser } = useContext(UserContext)
   const [isLoading, setIsLoading] = useState(true);
 
-  const updateCurrentUser = async () => {
-    const accessToken = await getUserToken();
-    console.log('access token:', typeof(accessToken));
-    console.log("Attempting to update current user with token:", accessToken.substring(0, 9))
-    const { data: { user }, error } = await supabase.auth.getUser(accessToken)
-    console.log('user:', user)
-    if (error) {
-      console.log("Error updating current user:", error)
-      console.log("Attempting to fetch refresh token")
-      fetchRefreshToken();
-    } else {
-      const currentUser = {
-        first_name: user.user_metadata.first_name,
-        last_name: user.user_metadata.last_name,
-      }
-      setUser(currentUser)
-      console.log("Updated current user:", currentUser.first_name, currentUser.last_name)
+  const updateLoadingOnUserUpdate = async () => {
+    const didUpdateUserSuccessfully = await updateCurrentUser(setUser);
+    if (didUpdateUserSuccessfully) {
       setIsLoading(false)
-      console.log("Loading completed")
+    } else {
+      setIsLoading(true)
     }
   }
-
-  const fetchRefreshToken = async () => {
-    
-    const { error } = await supabase.auth.getSession()
-    if (error) {
-      console.log('Error refreshing session', error)
-    } else {
-      console.log('Successfully refreshed session with refresh token')
-      console.log('Updating current user')
-      // updateCurrentUser();
-      const { data: { user }, error } = await supabase.auth.getUser()
-      if (error) {
-        console.log('Still cant get user from new session')
-      } else {
-        const currentUser = {
-          first_name: user.user_metadata.first_name,
-          last_name: user.user_metadata.last_name,
-        }
-        setUser(currentUser)
-        console.log("Finally able to update current user:", currentUser.first_name, currentUser.last_name)
-        setIsLoading(false)
-        console.log("Loading finally complete")
-      }
-  }
-}
   
   useEffect(() => {
-    updateCurrentUser();
+    updateLoadingOnUserUpdate();
   }, []);
 
   if (isLoading) {
