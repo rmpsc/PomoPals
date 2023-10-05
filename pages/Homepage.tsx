@@ -14,20 +14,13 @@ import SettingsPage from './SettingsPage';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { ActivityIndicator } from 'react-native';
 import { YStack } from 'tamagui';
-import { getRefreshToken, getUserToken, updateCurrentUser } from '../services/AuthenticationServices';
+import { getRefreshToken, getAccessToken, updateCurrentUser } from '../services/AuthenticationServices';
 
 const Tab = createBottomTabNavigator();
 
 interface HomepageProps {token, navigation}
 
 const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
-  /* takes in project url and anon key */
-  const supabase = createClient('https://broqnokklyltdgpeaakk.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJyb3Fub2trbHlsdGRncGVhYWtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTIzMDg0ODgsImV4cCI6MjAwNzg4NDQ4OH0.fgSWYn6f9Uv_nEypz_JMwl-AyVk4GILpiHzaVI1CEJk', {
-    auth: {
-      persistSession: true,
-      storage: AsyncStorage
-    }
-  });
 
   const { setUser } = useContext(UserContext)
   const [isLoading, setIsLoading] = useState(true);

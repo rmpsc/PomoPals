@@ -9,7 +9,7 @@ import PomodoroGroup from './pages/PomodoroGroup';
 import PomodoroSolo from './pages/PomodoroSolo';
 import SignupPage from './pages/SignupPage';
 import { UserContextProvider } from './pages/UserContext';
-import { getUserToken, removeRefreshToken, removeUserToken } from './services/AuthenticationServices';
+import { getAccessToken, removeRefreshToken, removeAccessToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
 import SettingsPage from './pages/SettingsPage';
 
@@ -22,7 +22,7 @@ export default function App() {
 
   useEffect(() => {
     const checkUserToken = async () => {
-      const userToken = await getUserToken();
+      const userToken = await getAccessToken();
       if (userToken) {
         console.log('Retrieved access token from AsyncStorage:', userToken.substring(0, 9));
         setInitialRoute('Homepage');
@@ -30,7 +30,7 @@ export default function App() {
         setToken(userToken);
 
         // TEMPORARY TESTING
-        // await removeUserToken();
+        // await removeAccessToken();
         // await removeRefreshToken();
       }
       setIsLoading(false);
