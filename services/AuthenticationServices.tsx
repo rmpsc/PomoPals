@@ -83,8 +83,8 @@ export const getCurrentSession = async () => {
 }
 
 export const refreshSession = async () => {
-  console.log("Attempting to refresh session with refresh token")
-  const { error } = await supabase.auth.getSession()
+  console.log("Attempting to refresh session")
+  const { error } = await supabase.auth.refreshSession()
   if (error) {
     console.log("Error refreshing session", error)
   }
