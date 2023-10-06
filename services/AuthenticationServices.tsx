@@ -106,3 +106,43 @@ export const updateCurrentUser = async (setUser) => {
   return false
 }
 // TODO: add other auth related functions (login, signup)
+export const handleLoginAndSignUp = async (newUser: boolean, setUser, navigation, email: string, password: string, firstName?: string, lastName?: string, ) => {
+  // if (!email || !password || !firstName || !lastName) {
+  //   console.log("Make sure to fill in all fields");
+  // }
+  let userData: any
+  if (newUser) {
+    const { data, error } = await supabase.auth.signUp({
+      email: email,
+      password: password,
+      options: {
+        data: {
+          // snake case is a common convention for sql
+          first_name: firstName,
+          last_name: lastName
+        },
+      },
+    })
+    if (error) {
+      console.log('Error signing up:', error.message)
+      return;
+    } else {
+      userData = data
+    }
+  } else {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
+    if (error) {
+      console.log('Error signing up:', error.message)
+      return;
+    } else {
+      userData = data
+    }
+  }
+  await updateCurrentUser(setUser)
+  await storeAccessToken(userData?.session.access_token)
+  await storeRefreshToken(userData?.session.refresh_token)
+  navigation.navigate('Homepage')
+}

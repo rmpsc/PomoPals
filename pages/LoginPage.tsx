@@ -7,7 +7,7 @@ import { createClient } from '@supabase/supabase-js';
 import 'react-native-url-polyfill/auto';
 import Header from '../components/Header';
 import LoginForm from '../components/LoginForm';
-import { storeRefreshToken, storeAccessToken } from '../services/AuthenticationServices';
+import { storeRefreshToken, storeAccessToken, handleLoginAndSignUp } from '../services/AuthenticationServices';
 import { UserContext } from './UserContext';
 
 interface LoginPageProps {navigation}
@@ -25,37 +25,6 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
 
   // access the user context
   const { setUser } = useContext(UserContext)
-
-  async function signInWithEmail() {
-    if (!email || !password) {
-      console.log('missing username or password');
-      return;
-    }
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    })
-    if (error) {
-      console.log('Invalid Credentials')
-    } else {
-      console.log('Login successful!', data.user.user_metadata)
-      // save current user into userContext
-      const currentUser = {
-        first_name: data.user.user_metadata.first_name,
-        last_name: data.user.user_metadata.last_name,
-      };
-
-      setUser(currentUser)
-      console.log('Set current user via login page')
-      // add user to AsyncStorage
-      // access token jwt
-      // TODO: check token refresh/expiry
-      await storeAccessToken(data.session.access_token)
-      await storeRefreshToken(data.session.refresh_token)
-      console.log('Stored current user via login page')
-      navigation.navigate('Homepage')
-    }
-  }
 
   return (
     <Stack bg="white" theme="light" paddingHorizontal={25} paddingTop={60} paddingBottom={20} f={1} fd={'column'}>
@@ -77,7 +46,7 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
         </XStack>
 
         <YStack theme="blue_active_Button" opacity={.8}>
-          <Button size="$6" onPress={signInWithEmail}>
+          <Button size="$6" onPress={() => handleLoginAndSignUp(false, setUser, navigation, email, password)}>
             <Text color="white" fontSize={'$2'} fontWeight={'$1'}>Sign In</Text>
           </Button>
         </YStack>
