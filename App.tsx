@@ -9,7 +9,7 @@ import PomodoroGroup from './pages/PomodoroGroup';
 import PomodoroSolo from './pages/PomodoroSolo';
 import SignupPage from './pages/SignupPage';
 import { UserContextProvider } from './pages/UserContext';
-import { getAccessToken, removeRefreshToken, removeAccessToken } from './services/AuthenticationServices';
+import { getAccessToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
 import SettingsPage from './pages/SettingsPage';
 
@@ -18,7 +18,6 @@ const Stacks = createNativeStackNavigator();
 export default function App() {
   const [initialRoute, setInitialRoute] = useState('SignupPage');
   const [isLoading, setIsLoading] = useState(true);
-  const [token, setToken] = useState(null);
 
   useEffect(() => {
     const checkUserToken = async () => {
@@ -27,7 +26,6 @@ export default function App() {
         console.log('Retrieved access token from AsyncStorage:', userToken.substring(0, 9));
         setInitialRoute('Homepage');
         console.log('Set initial route to Homepage')
-        setToken(userToken);
 
         // TEMPORARY TESTING
         // await removeAccessToken();
@@ -67,7 +65,7 @@ export default function App() {
             name='Homepage'
             options={{headerShown: false}}
           >
-            {(props) => <Homepage {...props} token={token} />}
+            {(props) => <Homepage {...props} />}
           </Stacks.Screen>
           <Stacks.Screen
             name='PomodoroSolo'

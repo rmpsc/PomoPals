@@ -18,9 +18,9 @@ import { getRefreshToken, getAccessToken, updateCurrentUser } from '../services/
 
 const Tab = createBottomTabNavigator();
 
-interface HomepageProps {token, navigation}
+interface HomepageProps {navigation}
 
-const Homepage: React.FC<HomepageProps> = ({token, navigation}) => {
+const Homepage: React.FC<HomepageProps> = ({navigation}) => {
 
   const { setUser } = useContext(UserContext)
   const [isLoading, setIsLoading] = useState(true);
