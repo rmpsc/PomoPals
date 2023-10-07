@@ -16,6 +16,6 @@
 ### [Tamagui](https://tamagui.dev/)
 Tamagui is a modern styling & component library
 ### [Study/Focus timer](https://www.npmjs.com/package/react-native-countdown-circle-timer)
-Temporary component for countdown timer
+Temporary component for countdown timer. Will switch to custom component in the future
 ### [AsyncStorage](https://react-native-async-storage.github.io/async-storage/docs/usage/)
 The AsyncStorage library is used to store user tokens locally for each session
