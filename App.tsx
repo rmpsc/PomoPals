@@ -1,18 +1,17 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
-import { TamaguiProvider, YStack } from 'tamagui';
+import { TamaguiProvider } from 'tamagui';
 import Homepage from './pages/Homepage';
 import LoginPage from './pages/LoginPage';
 import PomodoroGroup from './pages/PomodoroGroup';
 import PomodoroSolo from './pages/PomodoroSolo';
+import SettingsPage from './pages/SettingsPage';
 import SignupPage from './pages/SignupPage';
+import SplashScreen from './pages/SplashScreen';
 import { UserContextProvider } from './pages/UserContext';
 import { getAccessToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
-import SettingsPage from './pages/SettingsPage';
-import SplashScreen from './pages/SplashScreen';
 
 const Stacks = createNativeStackNavigator();
 

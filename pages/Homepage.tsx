@@ -1,21 +1,17 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createClient } from '@supabase/supabase-js';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
+import Ionicons from '@expo/vector-icons/Ionicons';
 import 'react-native-url-polyfill/auto';
-import StudyPage from './StudyPage';
-import { UserContext } from './UserContext';
-import ProfilePage from './ProfilePage';
+import { updateCurrentUser } from '../services/AuthenticationServices';
 import HabitTrackerPage from './HabitTrackerPage';
 import PalsPage from './PalsPage';
+import ProfilePage from './ProfilePage';
 import SettingsPage from './SettingsPage';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { ActivityIndicator } from 'react-native';
-import { YStack } from 'tamagui';
-import { getRefreshToken, getAccessToken, updateCurrentUser } from '../services/AuthenticationServices';
 import SplashScreen from './SplashScreen';
+import StudyPage from './StudyPage';
+import { UserContext } from './UserContext';
 
 const Tab = createBottomTabNavigator();
 

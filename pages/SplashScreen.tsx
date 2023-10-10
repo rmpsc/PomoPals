@@ -1,7 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Image, StyleSheet } from 'react-native';
 import { YStack } from 'tamagui';
-// import tomapal from '../assets/tomapal.png'; // Import the image
 
 function SplashScreen() {
   return (
