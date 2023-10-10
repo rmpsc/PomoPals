@@ -12,6 +12,7 @@ import { UserContextProvider } from './pages/UserContext';
 import { getAccessToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
 import SettingsPage from './pages/SettingsPage';
+import SplashScreen from './pages/SplashScreen';
 
 const Stacks = createNativeStackNavigator();
 
@@ -39,9 +40,7 @@ export default function App() {
   if (isLoading) {
     return (
       <TamaguiProvider config={config}>
-        <YStack f={1} ai='center' jc='center'>
-          <ActivityIndicator color={'black'} />
-        </YStack>
+        <SplashScreen></SplashScreen>
       </TamaguiProvider>
     )
   }

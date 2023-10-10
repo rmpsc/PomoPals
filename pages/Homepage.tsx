@@ -15,6 +15,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { ActivityIndicator } from 'react-native';
 import { YStack } from 'tamagui';
 import { getRefreshToken, getAccessToken, updateCurrentUser } from '../services/AuthenticationServices';
+import SplashScreen from './SplashScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,9 +41,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
 
   if (isLoading) {
     return (
-      <YStack f={1} ai='center' jc='center'>
-        <ActivityIndicator color={'black'} />
-      </YStack>
+      <SplashScreen></SplashScreen>
     )
   }
 
