@@ -9,7 +9,7 @@ function SplashScreen() {
         source={require('../assets/tomapal.png')}
         style={styles.image}
       />
-      <ActivityIndicator color={'red'} />
+      <ActivityIndicator color={'white'} />
     </YStack>
   );
 }
