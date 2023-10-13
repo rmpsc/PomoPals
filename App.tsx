@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useEffect, useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
 import { TamaguiProvider } from 'tamagui';
 import Homepage from './pages/Homepage';
 import LoginPage from './pages/LoginPage';
@@ -48,6 +49,7 @@ export default function App() {
     <UserContextProvider>
     <TamaguiProvider config={config}>
       <NavigationContainer>
+        <StatusBar style='dark'/>
         <Stacks.Navigator initialRouteName={initialRoute}>
           <Stacks.Screen
             name='LoginPage'
