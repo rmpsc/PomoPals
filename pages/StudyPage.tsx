@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { UserContext } from './UserContext';
+import TopBar from '../components/TopBar';
 
 interface StudyPageProps {token, navigation}
 
@@ -33,11 +34,9 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
   }
 
   return (
-      <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20}>
+      <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={20} paddingBottom={20}>
         <Stack paddingVertical={30}>
-          <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
-            Welcome back, {user?.user.first_name}
-          </Text>
+          <TopBar firstName={user?.user.first_name} navigation={navigation}/>
         </Stack>
         <Stack pb={10}>
           <Text color='$grey' fontSize={'$2'}>
