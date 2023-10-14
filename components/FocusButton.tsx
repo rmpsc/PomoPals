@@ -3,14 +3,17 @@ import { Button, Text } from 'tamagui';
 interface FocusButtonProps {
   text: string,
   page: string,
+  color: string,
   navigation
 }
  
-const FocusButton: React.FC<FocusButtonProps> = ({text, page, navigation}) => {
+const FocusButton: React.FC<FocusButtonProps> = ({text, page, color, navigation}) => {
   return (
     <Button
       f={1}
-      size={90}
+      marginHorizontal={10}
+      size={190}
+      bg={color}
       mb={10}
       shadowColor={'black'}
       shadowRadius={2}

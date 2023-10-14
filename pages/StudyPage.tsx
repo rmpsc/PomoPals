@@ -39,15 +39,15 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
         <Stack paddingVertical={30}>
           <TopBar firstName={user?.user.first_name} navigation={navigation}/>
         </Stack>
-        <Stack pb={10}>
+        <Stack pb={20}>
           <Text color='black' fontSize={25} fontWeight={'$6'}>
             Focus
           </Text>
         </Stack>
 
         <XStack theme="light" jc='space-evenly'>
-          <FocusButton text='Solo' page='PomodoroSolo' navigation={navigation}/>
-          <FocusButton text='Group' page='PomodoroGroup' navigation={navigation}/>
+          <FocusButton text='Solo' page='PomodoroSolo' color='#E6E5FF' navigation={navigation}/>
+          <FocusButton text='Group' page='PomodoroGroup' color= '#E6F3E9' navigation={navigation}/>
         </XStack>
 
         <YStack>
