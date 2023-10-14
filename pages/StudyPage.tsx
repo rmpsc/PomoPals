@@ -8,6 +8,7 @@ import 'react-native-url-polyfill/auto';
 import { UserContext } from './UserContext';
 import TopBar from '../components/TopBar';
 import FocusButton from '../components/FocusButton';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface StudyPageProps {token, navigation}
 
@@ -35,7 +36,7 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
   }
 
   return (
-      <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={20} paddingBottom={20}>
+      <Stack f={1} bg="white" paddingHorizontal={25} paddingTop={35} paddingBottom={20}>
         <Stack paddingVertical={30}>
           <TopBar firstName={user?.user.first_name} navigation={navigation}/>
         </Stack>
@@ -45,18 +46,28 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
           </Text>
         </Stack>
 
-        <XStack theme="light" jc='space-evenly'>
-          <FocusButton text='Solo' page='PomodoroSolo' color='#E6E5FF' navigation={navigation}/>
-          <FocusButton text='Group' page='PomodoroGroup' color= '#E6F3E9' navigation={navigation}/>
+        <XStack theme="light" jc='space-between' pb={5}>
+          <FocusButton text='Solo' page='PomodoroSolo' icon= 'md-body-outline' color='#E6E5FF' accent='#B5B4EB' navigation={navigation}/>
+          <FocusButton text='Group' page='PomodoroGroup' icon= 'md-bonfire-outline' color='#E6F3E9' accent='#A7B6A6' navigation={navigation}/>
         </XStack>
 
-        <YStack>
+        <XStack theme="light" jc='space-between' pb={5}>
+          <FocusButton text='Group' page='PomodoroGroup' icon= 'md-bonfire-outline' color='#E6F3E9' accent='#A7B6A6' navigation={navigation}/>
+          <FocusButton text='Solo' page='PomodoroSolo' icon= 'md-body-outline' color='#E6E5FF' accent='#B5B4EB' navigation={navigation}/>
+        </XStack>
+
+        {/* <XStack theme="light" jc='space-between'>
+          <FocusButton text='Solo' page='PomodoroSolo' icon= 'md-body-outline' color='#E6E5FF' accent='#CDCBFF' navigation={navigation}/>
+          <FocusButton text='Group' page='PomodoroGroup' icon= 'md-bonfire-outline' color='#E6F3E9' accent='#C5D3C9' navigation={navigation}/>
+        </XStack> */}
+
+        {/* <YStack>
           <ListItem>
             {countries.map((country) => (
               <Text key={country.name}>{country.name}</Text>
             ))}
           </ListItem>
-        </YStack>
+        </YStack> */}
       </Stack>
   );
 };

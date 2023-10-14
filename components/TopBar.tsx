@@ -12,7 +12,7 @@ const TopBar: React.FC<TopBarProps> = ({firstName, navigation}) => {
   return (
     <XStack jc='space-between' ai='flex-end'>
       <YStack>
-        <Text color='grey' fontSize={20} fontWeight={'300'}>
+        <Text color='black' opacity={.6} fontSize={20} fontWeight={'400'}>
           Hello,
         </Text>
         <XStack ai='center'>
@@ -26,7 +26,7 @@ const TopBar: React.FC<TopBarProps> = ({firstName, navigation}) => {
         </XStack>
       </YStack>
       <XStack>
-        <Ionicons name="md-person-circle-outline" size={60} color={'black'} onPress={() =>
+        <Ionicons name="md-person-circle-outline" size={50} color={'black'} onPress={() =>
           navigation.navigate('Profile')
         }/>
       </XStack>

@@ -11,7 +11,7 @@ import SettingsPage from './pages/SettingsPage';
 import SignupPage from './pages/SignupPage';
 import SplashScreen from './pages/SplashScreen';
 import { UserContextProvider } from './pages/UserContext';
-import { getAccessToken } from './services/AuthenticationServices';
+import { getAccessToken, removeAccessToken, removeRefreshToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
 
 const Stacks = createNativeStackNavigator();

@@ -42,7 +42,7 @@ const LoginPage: React.FC<LoginPageProps> = ({navigation}) => {
       <YStack pb={25} f={2} jc={'flex-end'}>
         <XStack p={10} jc={'center'} ai="center">
           <Text paddingRight={10} color="gray" fontSize={'$2'}>Don't have an account?</Text>
-          <Text onPress={() => navigation.navigate('SignupPage')}  color="$blue10" fontSize={'$2'}>Sign Up</Text>
+          <Text onPress={() => navigation.navigate('SignupPage')} color="$blue10" fontSize={'$2'}>Sign Up</Text>
         </XStack>
 
         <YStack theme="blue_active_Button" opacity={.8}>

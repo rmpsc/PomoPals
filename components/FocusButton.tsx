@@ -1,28 +1,31 @@
 import React from 'react'
-import { Button, Text } from 'tamagui';
+import { Button, Text, YStack } from 'tamagui';
+import FocusIcon from './FocusIcon';
 interface FocusButtonProps {
   text: string,
   page: string,
+  icon: string,
   color: string,
+  accent: string,
   navigation
 }
  
-const FocusButton: React.FC<FocusButtonProps> = ({text, page, color, navigation}) => {
+const FocusButton: React.FC<FocusButtonProps> = ({text, page, icon, color, accent, navigation}) => {
   return (
     <Button
-      f={1}
-      marginHorizontal={10}
+      theme='blue'
+      f={.45}
       size={190}
       bg={color}
       mb={10}
-      shadowColor={'black'}
-      shadowRadius={2}
-      shadowOpacity={.1}
       onPress={() =>
           navigation.navigate(page)
       }
     >
-      <Text color='black' fontSize={'$2'}>{text}</Text>
+      <YStack ai="center">
+        <FocusIcon icon={icon} color={accent}/>
+        <Text color='black' fontSize={25} fontWeight={'600'} >{text}</Text>
+      </YStack>
     </Button>
   );
 }
