@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 /* https://tamagui.dev/docs/core/stack-and-text  */
-import { Button, ListItem, Stack, Text, YStack } from 'tamagui';
+import { Button, ListItem, Stack, Text, XStack, YStack } from 'tamagui';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createClient } from '@supabase/supabase-js';
 /* polyfill needed for supabase integration https://github.com/supabase/supabase/issues/8464 */
 import 'react-native-url-polyfill/auto';
 import { UserContext } from './UserContext';
 import TopBar from '../components/TopBar';
+import FocusButton from '../components/FocusButton';
 
 interface StudyPageProps {token, navigation}
 
@@ -39,39 +40,16 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
           <TopBar firstName={user?.user.first_name} navigation={navigation}/>
         </Stack>
         <Stack pb={10}>
-          <Text color='$grey' fontSize={'$2'}>
-            How would you like to study today?
+          <Text color='black' fontSize={25} fontWeight={'$6'}>
+            Focus
           </Text>
         </Stack>
 
-        <Stack theme="light">
-          <Button
-            size={90}
-            mb={10}
-            bg={buttonColor}
-            shadowColor={'black'}
-            shadowRadius={2}
-            shadowOpacity={.1}
-            onPress={() =>
-              navigation.navigate('PomodoroSolo')
-            }
-          >
-            <Text color='black' fontSize={'$2'}>Study solo</Text>
-          </Button>
-          <Button
-            size={90}
-            mb={10}
-            bg={buttonColor}
-            shadowColor={'black'}
-            shadowRadius={2}
-            shadowOpacity={.1}
-            onPress={() =>
-              navigation.navigate('PomodoroGroup')
-            }
-          >
-            <Text color='black' fontSize={'$2'}>Study in a group</Text>
-          </Button>
-        </Stack>
+        <XStack theme="light" jc='space-evenly'>
+          <FocusButton text='Solo' page='PomodoroSolo' navigation={navigation}/>
+          <FocusButton text='Group' page='PomodoroGroup' navigation={navigation}/>
+        </XStack>
+
         <YStack>
           <ListItem>
             {countries.map((country) => (
