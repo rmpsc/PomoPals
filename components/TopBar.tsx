@@ -10,23 +10,23 @@ interface TopBarProps {
  
 const TopBar: React.FC<TopBarProps> = ({firstName, navigation}) => {
   return (
-    <XStack jc='space-between' ai='flex-end'>
+    <XStack bg='white' jc='space-between' ai='center' paddingHorizontal={25} paddingTop={60} paddingBottom={10} borderColor={'lightgray'} borderBottomWidth={.3}>
       <YStack>
         <Text color='black' opacity={.6} fontSize={20} fontWeight={'400'}>
           Hello,
         </Text>
         <XStack ai='center'>
-          <Text paddingRight={10} color='black' fontSize={35} fontWeight={'$6'}>
+          <Text paddingRight={10} color='black' fontSize={25} fontWeight={'$6'}>
             {firstName}
           </Text>
           <Image
-            source={require('../assets/tomapal.png')}
+            source={require('../assets/hand-wave.png')}
             style={styles.image}
           />
         </XStack>
       </YStack>
       <XStack>
-        <Ionicons name="md-person-circle-outline" size={50} color={'black'} onPress={() =>
+        <Ionicons name="md-person-circle" size={30} color={'black'} onPress={() =>
           navigation.navigate('Profile')
         }/>
       </XStack>
@@ -36,8 +36,8 @@ const TopBar: React.FC<TopBarProps> = ({firstName, navigation}) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: 50,
-    height: 50,
+    width: 30,
+    height: 30,
   },
 });
 
