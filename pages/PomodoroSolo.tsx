@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Button, Input, Stack, Text, XStack, YStack } from 'tamagui';
 /* https://tamagui.dev/docs/core/stack-and-text  */
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
+import TopNavBar from '../components/TopNavBar';
+import FocusButton from '../components/FocusButton';
 
-interface PomodoroSoloProps {}
+interface PomodoroSoloProps {navigation}
 
-const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
+const PomodoroSolo: React.FC<PomodoroSoloProps> = ({navigation}) => {
 
     const [startButtonText, setStartButtonText] = useState('Start');
     const [topText, setTopText] = useState('You got this!');
@@ -75,7 +77,9 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
     };
 
     return (
-        <Stack bg="white" paddingHorizontal={25} paddingTop={60} paddingBottom={20} theme='light'>
+      <Stack f={1}>
+        <TopNavBar pageName={'Focus'} navigation={navigation}/>
+        <Stack f={15} bg="white" paddingHorizontal={25} theme='light'>
           <Stack paddingVertical={30}>
             <Text color='black' fontSize={'$1'} fontWeight={'$6'}>
               {topText}
@@ -174,6 +178,8 @@ const PomodoroSolo: React.FC<PomodoroSoloProps> = () => {
             </Button>
           </Stack>
         </Stack>
+      </Stack>
+        
     )
 }
 

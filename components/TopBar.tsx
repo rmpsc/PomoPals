@@ -10,7 +10,7 @@ interface TopBarProps {
  
 const TopBar: React.FC<TopBarProps> = ({firstName, navigation}) => {
   return (
-    <XStack bg='white' jc='space-between' ai='center' paddingHorizontal={25} paddingTop={60} paddingBottom={10} borderColor={'lightgray'} borderBottomWidth={.3}>
+    <XStack f={1} bg='white' jc='space-between' ai='center' paddingHorizontal={25} paddingTop={60} paddingBottom={10} borderColor={'lightgray'} borderBottomWidth={.3}>
       <YStack>
         <Text color='black' opacity={.6} fontSize={20} fontWeight={'400'}>
           Hello,
