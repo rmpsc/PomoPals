@@ -38,7 +38,7 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
   return (
       <Stack f={1}>
         <TopBar firstName={user?.user.first_name} navigation={navigation}/>
-        <Stack f={15} bg="#EFF9FF" paddingHorizontal={25} paddingVertical={20}>
+        <Stack f={15} bg="white" paddingHorizontal={25} paddingVertical={20}>
           <Stack pb={20}>
             <Text color='black' fontSize={25} fontWeight={'$6'}>
               Focus
