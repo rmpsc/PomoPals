@@ -75,7 +75,7 @@ export default function App() {
           <Stacks.Screen
             name='PomodoroGroup'
             component={PomodoroGroup}
-            options={{headerShown: false}}
+            options={{headerShown: true}}
           />
           <Stacks.Screen
             name='Settings'

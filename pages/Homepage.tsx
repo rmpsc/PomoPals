@@ -12,6 +12,7 @@ import SettingsPage from './SettingsPage';
 import SplashScreen from './SplashScreen';
 import StudyPage from './StudyPage';
 import { UserContext } from './UserContext';
+import FocusStackNavigator from '../navigation/FocusStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -65,7 +66,7 @@ const Homepage: React.FC<HomepageProps> = ({navigation}) => {
       />
       <Tab.Screen
         name="Focus"
-        component={StudyPage}
+        component={FocusStackNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({size, color}) => (
