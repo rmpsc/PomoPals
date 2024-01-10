@@ -43,6 +43,15 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
             <Text color='black' fontSize={25} fontWeight={'$6'}>
               Focus
             </Text>
+            <Text color='black' style={{ fontFamily: 'WorkSans-Black', fontSize: 25 }} fontSize={25} fontWeight={'$1'}>
+              Focus
+            </Text>
+            <Text color='black' style={{ fontFamily: 'SF-Pro-Display-Black', fontSize: 25 }} fontSize={25} fontWeight={'$1'}>
+              Focus
+            </Text>
+            <Text color='black' style={{ fontFamily: 'SF-Pro-Display-Regular', fontSize: 25 }} fontSize={25} fontWeight={'$1'}>
+              Focus
+            </Text>
           </Stack>
 
           <XStack theme="light" jc='space-between'>

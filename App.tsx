@@ -13,12 +13,18 @@ import SplashScreen from './pages/SplashScreen';
 import { UserContextProvider } from './pages/UserContext';
 import { getAccessToken, removeAccessToken, removeRefreshToken } from './services/AuthenticationServices';
 import config from './tamagui.config';
+import { useFonts } from 'expo-font';
 
 const Stacks = createNativeStackNavigator();
 
 export default function App() {
   const [initialRoute, setInitialRoute] = useState('SignupPage');
   const [isLoading, setIsLoading] = useState(true);
+  const [fontsLoaded, fontError] = useFonts({
+    'WorkSans-Black': require('./assets/fonts/WorkSans-Black.ttf'),
+    'SF-Pro-Display-Black': require('./assets/fonts/SF-Pro-Display-Black.otf'),
+    'SF-Pro-Display-Regular': require('./assets/fonts/SF-Pro-Display-Regular.otf'),
+  });
 
   useEffect(() => {
     const checkUserToken = async () => {
@@ -37,7 +43,7 @@ export default function App() {
     checkUserToken();
   }, []);
 
-  if (isLoading) {
+  if (isLoading && !fontsLoaded && !fontError) {
     return (
       <TamaguiProvider config={config}>
         <SplashScreen></SplashScreen>

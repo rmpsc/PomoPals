@@ -5,7 +5,7 @@ import { themes, tokens } from '@tamagui/themes'
 import { createTamagui, createFont } from 'tamagui' // or '@tamagui/core'
 
 const interFont = createFont({
-  family: 'Arial',
+  family: 'fantasy',
   size: {
     true: 35,
     1: 35,
@@ -34,12 +34,12 @@ const interFont = createFont({
   },
 
   // for native only, alternate family based on weight/style
-  face: {
-    // pass in weights as keys
-    700: { normal: 'Arial', italic: 'InterBold-Italic' },
-    800: { normal: 'Arial', italic: 'InterBold-Italic' },
-    900: { normal: 'Arial', italic: 'InterBold-Italic' },
-  },
+  // face: {
+  //   // pass in weights as keys
+  //   700: { normal: 'Arial', italic: 'InterBold-Italic' },
+  //   800: { normal: 'Arial', italic: 'InterBold-Italic' },
+  //   900: { normal: 'Arial', italic: 'InterBold-Italic' },
+  // },
 })
 
 const appConfig = createTamagui({
