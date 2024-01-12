@@ -9,6 +9,8 @@ import { UserContext } from './UserContext';
 import TopBar from '../components/TopBar';
 import FocusButton from '../components/FocusButton';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import DecreaseTimeButton from '../components/DecreaseTimeButton';
+import IncreaseTimeButton from '../components/IncreaseTimeButton';
 
 interface StudyPageProps {token, navigation}
 
@@ -44,6 +46,12 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
               Focus
             </Text>
           </Stack>
+
+          <XStack theme="light" jc='center' ai='center'>
+            <DecreaseTimeButton></DecreaseTimeButton>
+            <Text color='black' style={{ fontFamily: 'WorkSans-Var', fontSize: 40 }}> 25:00 </Text>
+            <IncreaseTimeButton></IncreaseTimeButton>
+          </XStack>
 
           <XStack theme="light" jc='space-between'>
             <FocusButton text='Solo' page='PomodoroSolo' icon='md-body-outline' color='#E6E5FF' accent='#B5B4EB' navigation={navigation}/>
