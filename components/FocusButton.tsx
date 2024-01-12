@@ -29,7 +29,7 @@ const FocusButton: React.FC<FocusButtonProps> = ({text, page, icon, color, accen
     >
       <YStack ai="center">
         <FocusIcon icon={icon} color={accent}/>
-        <Text color='black' fontSize={25} fontWeight={'600'} >{text}</Text>
+        <Text color='black' style={{ fontFamily: 'WorkSans-Var', fontSize: 25 }} >{text}</Text>
       </YStack>
     </Button>
   );

@@ -40,16 +40,7 @@ const StudyPage: React.FC<StudyPageProps> = ({token, navigation}) => {
         <TopBar firstName={user?.user.first_name} navigation={navigation}/>
         <Stack f={15} bg="white" paddingHorizontal={25} paddingVertical={20}>
           <Stack pb={20}>
-            <Text color='black' fontSize={25} fontWeight={'$6'}>
-              Focus
-            </Text>
-            <Text color='black' style={{ fontFamily: 'WorkSans-Black', fontSize: 25 }} fontSize={25} fontWeight={'$1'}>
-              Focus
-            </Text>
-            <Text color='black' style={{ fontFamily: 'SF-Pro-Display-Black', fontSize: 25 }} fontSize={25} fontWeight={'$1'}>
-              Focus
-            </Text>
-            <Text color='black' style={{ fontFamily: 'SF-Pro-Display-Regular', fontSize: 25 }} fontSize={25} fontWeight={'$1'}>
+            <Text color='black' style={{ fontFamily: 'WorkSans-Var', fontSize: 30 }}>
               Focus
             </Text>
           </Stack>

@@ -12,11 +12,11 @@ const TopBar: React.FC<TopBarProps> = ({firstName, navigation}) => {
   return (
     <XStack f={1} bg='white' jc='space-between' ai='center' paddingHorizontal={25} paddingTop={60} paddingBottom={10} borderColor={'lightgray'} borderBottomWidth={.3}>
       <YStack>
-        <Text color='black' opacity={.6} fontSize={20} fontWeight={'400'}>
+        <Text color='black' opacity={.6} style={{ fontFamily: 'WorkSans-Var', fontSize: 20 }}>
           Hello,
         </Text>
         <XStack ai='center'>
-          <Text paddingRight={10} color='black' fontSize={25} fontWeight={'$6'}>
+          <Text paddingRight={10} color='black' style={{ fontFamily: 'WorkSans-Var', fontSize: 25 }} fontWeight={'$6'}>
             {firstName}
           </Text>
           <Image

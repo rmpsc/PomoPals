@@ -24,6 +24,7 @@ export default function App() {
     'WorkSans-Black': require('./assets/fonts/WorkSans-Black.ttf'),
     'SF-Pro-Display-Black': require('./assets/fonts/SF-Pro-Display-Black.otf'),
     'SF-Pro-Display-Regular': require('./assets/fonts/SF-Pro-Display-Regular.otf'),
+    'WorkSans-Var': require('./assets/fonts/WorkSans-Var.ttf'),
   });
 
   useEffect(() => {
